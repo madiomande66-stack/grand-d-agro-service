@@ -1,852 +1,1009 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GRAND-D AGRO SERVICE</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GRAND‑D AGRO SERVICE • innovation agricole</title>
+  <!-- favicon -->
   <link rel="icon" type="image/jpeg" href="images/logo1.jpeg">
-
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
-
+  <!-- Google Fonts : Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    :root{
-      --green:#2E7D32;
-      --green-dark:#1B5E20;
-      --yellow:#FFC107;
-      --text:#222;
-      --muted:#666;
-      --bg:#ffffff;
-      --card:#f7f7f7;
-      --shadow:0 10px 25px rgba(0,0,0,0.12);
-      --radius:18px;
-    }
-
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:"Roboto", sans-serif;
-    }
-
-    html{ scroll-behavior:smooth; }
-    body{
-      background:var(--bg);
-      color:var(--text);
-      line-height:1.6;
-    }
-
-    a{ text-decoration:none; color:inherit; }
-
-    .container{
-      width:min(1200px, 92%);
-      margin:auto;
-    }
-
-    /* HEADER */
-    header{
-      position:sticky;
-      top:0;
-      z-index:3000;
-      background:rgba(46,125,50,0.98);
-      color:#fff;
-      backdrop-filter: blur(10px);
-      box-shadow:0 3px 12px rgba(0,0,0,0.18);
-    }
-
-    .header-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-      padding:14px 0;
-    }
+    /* ----- RESET & VARIABLES ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --green: #1a4d2e;
+      --green-bright: #2e7d32;
+      --green-light: #e3f2e9;
+      --gold: #f5b342;
+      --gold-light: #fff1d6;
+      --dark: #0b1e14;
+      --gray: #f4f6f9;
+      --text-dark: #1f2937;
+      --text-soft: #4b5563;
+      --white: #ffffff;
+      --shadow-sm: 0 8px 20px -8px rgba(0,0,0,0.1);
+      --shadow-md: 0 16px 30px -12px rgba(0,0,0,0.15);
+      --shadow-lg: 0 24px 48px -16px rgba(0,0,0,0.2);
+      --border-radius-card: 28px;
+      --border-radius-btn: 60px;
+      --transition: all 0.3s ease;
+    }
+
+    body {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      background-color: var(--white);
+      color: var(--text-dark);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1300px, 92%);
+      margin: 0 auto;
+    }
+
+    /* ----- TYPOGRAPHY (réduite) ----- */
+    h1, h2, h3, h4 {
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      margin-bottom: 0.8rem;
+    }
+
+    .section-subhead {
+      color: var(--text-soft);
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+      text-align: center;
+      font-weight: 400;
+    }
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
+    /* ----- BUTTONS & BADGES ----- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+      padding: 0.85rem 1.8rem;
+      border-radius: var(--border-radius-btn);
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      background: var(--green);
+      color: white;
+      box-shadow: 0 12px 22px -10px rgba(26,77,46,0.3);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
     }
 
-    .brand img{
-      width:54px;
-      height:54px;
-      background:#fff;
-      border-radius:14px;
-      padding:6px;
-      object-fit:contain;
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.6s;
+      z-index: -1;
     }
 
-    .brand .title{
-      display:flex;
-      flex-direction:column;
-      line-height:1.1;
-    }
-
-    .brand .title strong{
-      font-size:1.2rem;
-      font-weight:900;
-    }
-
-    .brand .title span{
-      font-size:0.85rem;
-      opacity:0.9;
-    }
-
-    nav{
-      display:flex;
-      gap:18px;
-      align-items:center;
-    }
-
-    nav a{
-      font-weight:600;
-      transition:0.25s;
-      opacity:0.95;
-    }
-
-    nav a:hover{
-      color:var(--yellow);
-      transform:translateY(-1px);
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding:12px 18px;
-      border-radius:999px;
-      font-weight:800;
-      border:none;
-      cursor:pointer;
-      transition:0.25s;
-      user-select:none;
-    }
-
-    .btn-primary{
-      background:var(--yellow);
-      color:#111;
-      box-shadow:0 8px 18px rgba(0,0,0,0.18);
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 28px -10px rgba(26,77,46,0.4);
     }
 
-    .btn-primary:hover{
-      transform:scale(1.03);
+    .btn:hover::before {
+      left: 100%;
     }
 
-    .menu-btn{
-      display:none;
-      background:transparent;
-      border:none;
-      color:white;
-      font-size:26px;
-      cursor:pointer;
+    .btn-outline {
+      background: transparent;
+      border: 2px solid rgba(255,255,255,0.3);
+      box-shadow: none;
+      color: white;
     }
 
-    /* MOBILE NAV */
-    .mobile-nav{
-      display:none;
-      background:#1f5f23;
-      padding:12px 0 18px;
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: transparent;
+      transform: translateY(-3px);
     }
 
-    .mobile-nav a{
-      display:block;
-      padding:12px 0;
-      font-weight:700;
-      text-align:center;
-      border-top:1px solid rgba(255,255,255,0.12);
+    .btn-primary {
+      background: var(--gold);
+      color: var(--dark);
+      box-shadow: 0 12px 22px -10px rgba(245,179,66,0.3);
     }
 
-    .mobile-nav a:hover{
-      color:var(--yellow);
+    .btn-primary:hover {
+      background: #e09d30;
     }
 
-    .mobile-nav .mobile-cta{
-      margin-top:12px;
-      display:flex;
-      justify-content:center;
+    /* ----- HEADER (inchangé, ok) ----- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(0,0,0,0.02);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.02);
     }
 
-    /* HERO */
-    .hero{
-      position:relative;
-      min-height:92vh;
-      display:flex;
-      align-items:center;
-      color:#fff;
-      overflow:hidden;
-      background:
-        linear-gradient(rgba(0,0,0,0.70), rgba(0,0,0,0.70)),
-        url("images/logo2.jpeg") no-repeat center/cover;
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 0;
     }
 
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(255,193,7,0.12), transparent 40%),
-        radial-gradient(circle at 80% 70%, rgba(46,125,50,0.22), transparent 45%);
-      pointer-events:none;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    .hero-content{
-      position:relative;
-      padding:90px 0 60px;
-      display:grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap:30px;
-      align-items:center;
+    .brand img {
+      width: 50px;
+      height: 50px;
+      border-radius: 16px;
+      object-fit: cover;
+      box-shadow: 0 8px 16px -8px rgba(0,0,0,0.15);
     }
 
-    .hero h1{
-      font-size:2.8rem;
-      line-height:1.15;
-      margin-bottom:14px;
-      font-weight:900;
+    .brand .title strong {
+      font-size: 1.3rem;
+      font-weight: 800;
+      background: linear-gradient(120deg, var(--green), var(--green-bright));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .hero p{
-      font-size:1.08rem;
-      opacity:0.95;
-      max-width:650px;
-      margin-bottom:20px;
+    .brand .title span {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      font-weight: 500;
     }
 
-    .hero-actions{
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
-      margin-top:8px;
+    nav {
+      display: flex;
+      gap: 1.8rem;
+      align-items: center;
     }
 
-    .btn-outline{
-      background:transparent;
-      border:2px solid rgba(255,255,255,0.75);
-      color:white;
+    nav > a, .dropdown {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      position: relative;
+      padding: 0.3rem 0;
     }
 
-    .btn-outline:hover{
-      border-color:var(--yellow);
-      color:var(--yellow);
-      transform:scale(1.03);
+    nav > a::after, .dropdown > span::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2.5px;
+      background: var(--gold);
+      transition: width 0.3s ease;
     }
 
-    .hero-card{
-      background:rgba(255,255,255,0.08);
-      border:1px solid rgba(255,255,255,0.15);
-      padding:22px;
-      border-radius:var(--radius);
-      box-shadow:0 15px 40px rgba(0,0,0,0.25);
-      backdrop-filter: blur(12px);
+    nav > a:hover::after, .dropdown:hover > span::after {
+      width: 100%;
     }
 
-    .hero-card h3{
-      font-size:1.15rem;
-      margin-bottom:12px;
+    .dropdown {
+      position: relative;
+      cursor: pointer;
     }
 
-    .hero-card ul{
-      list-style:none;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
+    .dropdown > span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
     }
 
-    .hero-card li{
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-      opacity:0.95;
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      border-radius: 18px;
+      padding: 0.8rem 0;
+      box-shadow: var(--shadow-lg);
+      min-width: 190px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+      z-index: 200;
+      border: 1px solid rgba(0,0,0,0.05);
     }
 
-    .hero-card li span{
-      color:var(--yellow);
-      font-weight:900;
+    .dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
     }
 
-    /* SECTIONS */
-    section{
-      padding:70px 0;
+    .dropdown-menu a {
+      display: block;
+      padding: 0.6rem 1.4rem;
+      color: var(--text-dark);
+      font-weight: 500;
+      transition: background 0.2s;
     }
 
-    section h2{
-      text-align:center;
-      margin-bottom:40px;
-      color:var(--green);
-      font-weight:900;
-      font-size:2rem;
+    .dropdown-menu a:hover {
+      background: var(--green-light);
+      color: var(--green);
     }
 
-    /* ABOUT */
-    .about p{
-      max-width:900px;
-      margin:auto;
-      text-align:center;
-      font-size:1.05rem;
-      color:#333;
+    .menu-btn {
+      display: none;
+      background: transparent;
+      border: none;
+      font-size: 2rem;
+      color: var(--green);
+      cursor: pointer;
     }
 
-    /* SECTION FONDATEUR */
-    .founder-grid{
-      display:grid;
-      grid-template-columns: 1fr 1.4fr;
-      gap:28px;
-      align-items:center;
+    .mobile-nav {
+      display: none;
+      background: white;
+      padding: 1rem 0;
+      border-top: 1px solid rgba(0,0,0,0.05);
     }
 
-    .founder-photo img{
-      width:100%;
-      height:420px;
-      object-fit:cover;
-      border-radius:18px;
-      box-shadow:0 15px 35px rgba(0,0,0,0.15);
-      background:#eee;
+    .mobile-nav a {
+      display: block;
+      padding: 0.8rem;
+      font-weight: 600;
+      text-align: center;
+      border-bottom: 1px solid rgba(0,0,0,0.03);
     }
 
-    .founder-content{
-      background:#f7f7f7;
-      padding:26px;
-      border-radius:18px;
-      box-shadow:0 15px 35px rgba(0,0,0,0.10);
+    .mobile-nav a:last-child {
+      border-bottom: none;
     }
 
-    .founder-content h3{
-      color:#1B5E20;
-      font-size:1.6rem;
-      margin-bottom:12px;
-      font-weight:900;
+    .mobile-nav .mobile-cta {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
     }
 
-    .founder-content p{
-      margin-bottom:12px;
-      color:#333;
+    /* ----- HERO (légèrement réduit) ----- */
+    .hero {
+      position: relative;
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      color: white;
+      isolation: isolate;
     }
 
-    .founder-quote{
-      margin-top:16px;
-      padding:16px 18px;
-      border-left:6px solid #2E7D32;
-      background:white;
-      border-radius:14px;
-      font-style:italic;
-      font-weight:700;
-      color:#1B5E20;
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
     }
 
-    /* SERVICES */
-    .services-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
-      gap:22px;
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.3) saturate(1.2);
     }
 
-    .service{
-      background:var(--card);
-      padding:26px;
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      transition:0.25s;
-      position:relative;
-      overflow:hidden;
-      min-height:220px;
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 50%, rgba(26,77,46,0.4) 0%, transparent 60%),
+                  linear-gradient(110deg, rgba(0,0,0,0.6) 0%, rgba(0,20,10,0.7) 100%);
+      z-index: -1;
     }
 
-    .service::before{
-      content:"";
-      position:absolute;
-      top:-80px;
-      right:-80px;
-      width:160px;
-      height:160px;
-      background:rgba(46,125,50,0.12);
-      border-radius:50%;
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr;
+      gap: 2.5rem;
+      align-items: center;
+      padding: 3rem 0;
+      position: relative;
     }
 
-    .service:hover{
-      transform:translateY(-6px);
-      box-shadow:0 20px 35px rgba(0,0,0,0.16);
+    .hero h1 {
+      font-weight: 800;
+      line-height: 1.1;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.3);
     }
 
-    .service h3{
-      color:var(--green-dark);
-      font-weight:900;
-      margin-bottom:10px;
-      font-size:1.2rem;
+    .hero-highlight {
+      color: var(--gold);
+      position: relative;
+      display: inline-block;
     }
 
-    .service p{
-      color:#333;
+    .hero-highlight::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 6px;
+      width: 100%;
+      height: 10px;
+      background: rgba(245,179,66,0.25);
+      z-index: -1;
+      border-radius: 20px;
     }
 
-    /* PRODUITS */
-    .products-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
-      gap:22px;
+    .hero p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      max-width: 550px;
+      margin: 1.8rem 0 1.8rem;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
 
-    .product{
-      background:#fff;
-      border-radius:var(--radius);
-      overflow:hidden;
-      box-shadow:var(--shadow);
-      transition:0.25s;
-      border:1px solid rgba(0,0,0,0.06);
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
 
-    .product:hover{
-      transform:translateY(-6px);
-      box-shadow:0 20px 35px rgba(0,0,0,0.16);
+    .hero-card {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 36px;
+      padding: 2rem 1.8rem;
+      box-shadow: 0 30px 50px -20px rgba(0,0,0,0.4);
     }
 
-    .product .thumb{
-      height:160px;
-      background:
-        linear-gradient(120deg, rgba(46,125,50,0.16), rgba(255,193,7,0.18));
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:46px;
-      font-weight:900;
+    .hero-card h3 {
+      font-size: 1.4rem;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
     }
 
-    .product .content{
-      padding:18px 18px 20px;
+    .hero-card ul {
+      list-style: none;
     }
 
-    .product h3{
-      font-size:1.15rem;
-      margin-bottom:8px;
-      color:var(--green-dark);
-      font-weight:900;
+    .hero-card li {
+      display: flex;
+      gap: 0.8rem;
+      margin-bottom: 0.8rem;
+      font-weight: 400;
+      font-size: 0.95rem;
     }
 
-    .product p{
-      color:#333;
+    .hero-card li span {
+      color: var(--gold);
+      font-weight: 800;
     }
 
-    .product .tag{
-      display:inline-block;
-      margin-top:12px;
-      padding:6px 12px;
-      border-radius:999px;
-      background:rgba(46,125,50,0.10);
-      color:var(--green-dark);
-      font-weight:800;
-      font-size:0.9rem;
+    .shape {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(245,179,66,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: -1;
     }
 
-    /* CHIFFRES */
-    .stats-wrap{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
-      gap:18px;
-      margin-top:10px;
+    .shape-1 {
+      top: 20%;
+      right: 5%;
     }
 
-    .stat{
-      background:#fff;
-      border-radius:var(--radius);
-      padding:22px;
-      box-shadow:var(--shadow);
-      border:1px solid rgba(0,0,0,0.06);
-      text-align:center;
-      transition:0.25s;
+    .shape-2 {
+      bottom: 10%;
+      left: 0%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(46,125,50,0.12) 0%, transparent 70%);
     }
 
-    .stat:hover{
-      transform:translateY(-5px);
-      box-shadow:0 20px 35px rgba(0,0,0,0.14);
+    /* ----- SECTIONS (padding réduit) ----- */
+    section {
+      padding: 5rem 0;
+      position: relative;
     }
 
-    .stat strong{
-      display:block;
-      font-size:2rem;
-      font-weight:900;
-      color:var(--green-dark);
-      margin-bottom:6px;
+    section:nth-child(even) {
+      background-color: var(--gray);
     }
 
-    .stat span{
-      color:#333;
-      font-weight:700;
+    .section-title {
+      text-align: center;
+      font-size: clamp(2rem,5vw,2.8rem);
+      color: var(--green);
+      margin-bottom: 0.8rem;
     }
 
-    /* PARTNERS */
-    .partners-box{
-      background:linear-gradient(90deg, rgba(46,125,50,0.08), rgba(255,193,7,0.08));
-      border-radius:var(--radius);
-      padding:28px 18px;
-      box-shadow:var(--shadow);
-      overflow:hidden;
-      border:1px solid rgba(0,0,0,0.06);
+    .section-title span {
+      color: var(--gold);
     }
 
-    .partners-slider{
-      display:flex;
-      gap:16px;
-      align-items:center;
-      animation: slidePartners 18s linear infinite;
-      width:max-content;
+    .about p {
+      max-width: 900px;
+      margin: 1.5rem auto 0;
+      text-align: center;
+      color: var(--text-soft);
+      font-size: 1.1rem;
+      line-height: 1.6;
     }
 
-    .partner{
-      width:180px;
-      height:85px;
-      background:#fff;
-      border-radius:16px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      box-shadow:0 12px 25px rgba(0,0,0,0.10);
-      border:1px solid rgba(0,0,0,0.06);
-      overflow:hidden;
-      flex-shrink:0;
+    .founder-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 3rem;
+      align-items: center;
     }
 
-    .partner img{
-      width:80%;
-      height:80%;
-      object-fit:contain;
+    .founder-photo img {
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+      border-radius: 40px;
+      box-shadow: var(--shadow-lg);
+      transition: var(--transition);
       filter: grayscale(0.2);
-      opacity:0.95;
     }
 
-    .partner:hover img{
-      filter:none;
-      opacity:1;
+    .founder-photo:hover img {
+      filter: grayscale(0);
+      transform: scale(1.02);
     }
 
-    @keyframes slidePartners{
-      0%{ transform:translateX(0); }
-      100%{ transform:translateX(-50%); }
+    .founder-content {
+      background: white;
+      padding: 2.2rem;
+      border-radius: 40px;
+      box-shadow: var(--shadow-md);
     }
 
-    /* CTA STRIP */
-    .cta-strip{
-      background:linear-gradient(90deg, var(--green), var(--green-dark));
-      color:white;
-      border-radius:var(--radius);
-      padding:35px 28px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-      box-shadow:0 18px 45px rgba(0,0,0,0.18);
-      flex-wrap:wrap;
-      margin-top:35px;
+    .founder-content h3 {
+      font-size: 2.2rem;
+      color: var(--green);
+      margin-bottom: 1rem;
     }
 
-    .cta-strip h3{
-      font-size:1.5rem;
-      font-weight:900;
-      margin-bottom:6px;
+    .founder-content p {
+      color: var(--text-soft);
+      margin-bottom: 1rem;
+      font-size: 0.98rem;
     }
 
-    .cta-strip p{
-      opacity:0.95;
-      max-width:650px;
+    .founder-quote {
+      background: var(--green-light);
+      padding: 1.5rem 2rem;
+      border-radius: 36px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--green);
+      border-left: 6px solid var(--gold);
+      margin-top: 1.5rem;
+      box-shadow: var(--shadow-sm);
     }
 
-    /* GALLERY */
-    .gallery-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
-      gap:18px;
+    .global-image-section {
+      background: white;
+      padding: 3rem 0 4rem;
     }
 
-    .media{
-      border-radius:var(--radius);
-      overflow:hidden;
-      background:#eee;
-      box-shadow:var(--shadow);
-      transition:0.25s;
-      position:relative;
-      cursor:pointer;
+    .global-image-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      border-radius: 50px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
     }
 
-    .media:hover{
-      transform:translateY(-4px);
-      box-shadow:0 18px 35px rgba(0,0,0,0.18);
+    .global-image-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.8s;
     }
 
-    .media img{
-      width:100%;
-      height:280px;
-      object-fit:cover;
-      display:block;
-      transition:0.35s;
+    .global-image-container:hover img {
+      transform: scale(1.02);
     }
 
-    .media:hover img{
-      transform:scale(1.06);
+    .global-caption {
+      text-align: center;
+      margin-top: 1.5rem;
+      color: var(--text-soft);
+      font-size: 1.1rem;
+      font-weight: 500;
     }
 
-    .media .label{
-      position:absolute;
-      left:14px;
-      bottom:14px;
-      background:rgba(0,0,0,0.65);
-      color:#fff;
-      padding:8px 12px;
-      border-radius:999px;
-      font-weight:900;
-      font-size:0.95rem;
-      backdrop-filter: blur(10px);
+    .services-grid,
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
     }
 
-    /* CONTACT */
-    .contact-grid{
-      display:grid;
+    .card {
+      background: white;
+      padding: 1.8rem;
+      border-radius: 28px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      border: 1px solid rgba(0,0,0,0.02);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .card-icon {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+      background: var(--green-light);
+      padding: 0.8rem;
+      border-radius: 24px;
+      line-height: 1;
+    }
+
+    .card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.6rem;
+      color: var(--green);
+    }
+
+    .card p {
+      color: var(--text-soft);
+      margin-bottom: 1.2rem;
+      font-size: 0.92rem;
+    }
+
+    .card-tag {
+      display: inline-block;
+      background: var(--gold-light);
+      color: var(--green);
+      font-weight: 700;
+      padding: 0.3rem 1rem;
+      border-radius: 50px;
+      font-size: 0.75rem;
+    }
+
+    .stats-wrap {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .stat-item {
+      background: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      border-radius: 40px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .stat-number {
+      font-size: 3.2rem;
+      font-weight: 800;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-label {
+      color: var(--text-soft);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .partners-slider {
+      overflow: hidden;
+      padding: 1rem 0;
+      mask-image: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
+    }
+
+    .slider-track {
+      display: flex;
+      gap: 3rem;
+      width: max-content;
+      animation: scroll 35s linear infinite;
+    }
+
+    .partner-logo {
+      width: 130px;
+      height: 70px;
+      background: white;
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-sm);
+      padding: 0.4rem;
+    }
+
+    .partner-logo img {
+      max-width: 80%;
+      max-height: 80%;
+      object-fit: contain;
+      filter: grayscale(0.4);
+      transition: var(--transition);
+    }
+
+    .partner-logo:hover img {
+      filter: grayscale(0);
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-100% - 1.5rem)); }
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 32px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      box-shadow: var(--shadow-md);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .gallery-label {
+      position: absolute;
+      left: 1rem;
+      bottom: 1rem;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(8px);
+      color: white;
+      padding: 0.4rem 1.2rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .cta-strip {
+      background: linear-gradient(115deg, var(--green), #143b20);
+      border-radius: 50px;
+      padding: 3rem;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 3rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .cta-strip h3 {
+      font-size: 2rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .cta-strip p {
+      opacity: 0.85;
+      max-width: 550px;
+      font-size: 1rem;
+    }
+
+    .contact-grid {
+      display: grid;
       grid-template-columns: 1fr 1fr;
-      gap:28px;
-      align-items:start;
+      gap: 2.5rem;
     }
 
-    form{
-      background:var(--card);
-      padding:26px;
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      display:flex;
-      flex-direction:column;
-      gap:14px;
+    .contact-form {
+      background: white;
+      padding: 2.2rem;
+      border-radius: 40px;
+      box-shadow: var(--shadow-md);
     }
 
-    input, textarea{
-      width:100%;
-      padding:13px 12px;
-      border-radius:14px;
-      border:1px solid #ddd;
-      outline:none;
-      font-size:1rem;
-      transition:0.2s;
-      background:#fff;
+    .input-group {
+      margin-bottom: 1.2rem;
     }
 
-    input:focus, textarea:focus{
-      border-color:var(--green);
-      box-shadow:0 0 0 4px rgba(46,125,50,0.12);
+    input, textarea {
+      width: 100%;
+      padding: 1rem 1.2rem;
+      border-radius: 40px;
+      border: 1px solid #e5e7eb;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      outline: none;
+      background: #f9fafb;
     }
 
-    .contact-info{
-      background:#fff;
-      padding:26px;
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      border-left:8px solid var(--green);
+    input:focus, textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 4px rgba(245,179,66,0.15);
     }
 
-    .contact-info h3{
-      font-size:1.3rem;
-      margin-bottom:12px;
-      color:var(--green-dark);
-      font-weight:900;
+    .contact-info {
+      background: white;
+      padding: 2.2rem;
+      border-radius: 40px;
+      box-shadow: var(--shadow-md);
+      border-left: 8px solid var(--gold);
     }
 
-    .contact-info p{
-      margin-bottom:12px;
-      color:#333;
+    .contact-info h3 {
+      font-size: 1.8rem;
+      color: var(--green);
+      margin-bottom: 1.2rem;
     }
 
-    .contact-info a{
-      color:var(--green-dark);
-      font-weight:800;
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1.2rem 0;
     }
 
-    /* FOOTER */
-    footer{
-      background:#111;
-      color:white;
-      padding:40px 0 60px;
-      margin-top:30px;
+    .contact-detail i {
+      font-size: 1.5rem;
+      color: var(--gold);
+      width: 30px;
     }
 
-    footer .footer-inner{
-      display:flex;
-      justify-content:space-between;
-      gap:20px;
-      flex-wrap:wrap;
-      align-items:center;
+    .contact-detail a, .contact-detail span {
+      color: var(--text-soft);
+      font-weight: 500;
+      font-size: 0.95rem;
     }
 
-    footer a{
-      color:var(--yellow);
-      font-weight:700;
+    footer {
+      background: #0b1e14;
+      color: #c0d6c4;
+      padding: 3rem 0 4rem;
     }
 
-    /* WHATSAPP FLOAT */
-    .whatsapp-float{
-      position:fixed;
-      bottom:18px;
-      right:18px;
-      background:#25D366;
-      color:white;
-      padding:14px 18px;
-      border-radius:999px;
-      font-weight:900;
-      display:flex;
-      align-items:center;
-      gap:10px;
-      box-shadow:0 14px 30px rgba(0,0,0,0.25);
-      z-index:9999;
-      transition:0.2s;
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
     }
 
-    .whatsapp-float:hover{
-      transform:scale(1.05);
+    .footer-social a {
+      color: white;
+      margin-left: 1.2rem;
+      font-size: 1.4rem;
+      transition: var(--transition);
     }
 
-    /* BACK TO TOP */
-    .back-top{
-      position:fixed;
-      bottom:18px;
-      left:18px;
-      width:48px;
-      height:48px;
-      border-radius:999px;
-      background:rgba(46,125,50,0.95);
-      color:white;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:20px;
-      font-weight:900;
-      cursor:pointer;
-      box-shadow:0 14px 30px rgba(0,0,0,0.20);
-      z-index:9999;
-      opacity:0;
-      pointer-events:none;
-      transition:0.25s;
+    .footer-social a:hover {
+      color: var(--gold);
+      transform: translateY(-3px);
     }
 
-    .back-top.show{
-      opacity:1;
-      pointer-events:auto;
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #25D366;
+      color: white;
+      padding: 0.8rem 1.6rem;
+      border-radius: 60px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 20px 32px -12px rgba(37,211,102,0.4);
+      z-index: 99;
+      transition: var(--transition);
+      border: 1px solid rgba(255,255,255,0.2);
+      backdrop-filter: blur(4px);
+      font-size: 0.9rem;
     }
 
-    .back-top:hover{
-      transform:scale(1.06);
-      background:rgba(27,94,32,0.98);
+    .whatsapp-float:hover {
+      transform: scale(1.08) translateY(-4px);
+      background: #20b85c;
     }
 
-    /* SCROLL ANIMATION */
-    .reveal{
-      opacity:0;
-      transform:translateY(22px);
-      transition:0.8s ease;
-    }
-    .reveal.show{
-      opacity:1;
-      transform:translateY(0);
+    .back-top {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      width: 48px;
+      height: 48px;
+      border-radius: 60px;
+      background: var(--green);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      cursor: pointer;
+      box-shadow: var(--shadow-lg);
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition);
+      z-index: 99;
     }
 
-    /* RESPONSIVE */
-    @media(max-width: 900px){
-      .hero-content{
-        grid-template-columns:1fr;
-        padding:70px 0 45px;
+    .back-top.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .back-top:hover {
+      background: var(--gold);
+      transform: translateY(-4px);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1000px) {
+      .hero-content {
+        grid-template-columns: 1fr;
       }
-      .contact-grid{
-        grid-template-columns:1fr;
+      .founder-grid {
+        grid-template-columns: 1fr;
       }
-      .founder-grid{
-        grid-template-columns:1fr;
-      }
-      .founder-photo img{
-        height:320px;
+      .contact-grid {
+        grid-template-columns: 1fr;
       }
     }
 
-    @media(max-width: 768px){
-      nav{ display:none; }
-      .menu-btn{ display:block; }
-      .hero h1{ font-size:2.05rem; }
-      .hero p{ font-size:1rem; }
-      .media img{ height:240px; }
-    }
-
-    @media (prefers-reduced-motion: reduce){
-      *{ animation:none !important; transition:none !important; }
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .menu-btn { display: block; }
+      .header-inner .btn { display: none; }
+      section { padding: 4rem 0; }
+      .cta-strip { padding: 2.5rem; flex-direction: column; text-align: center; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-social a { margin: 0 0.8rem; }
     }
   </style>
 </head>
-
 <body>
 
-  <!-- HEADER -->
+  <!-- HEADER (inchangé, allégé visuellement) -->
   <header>
-    <div class="container">
-      <div class="header-inner">
-        <div class="brand">
-          <img src="images/logo1.jpeg" alt="Logo GRAND-D AGRO SERVICE" loading="lazy">
-          <div class="title">
-            <strong>GRAND-D AGRO SERVICE</strong>
-            <span>Production • Transformation • Distribution</span>
-          </div>
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="images/logo1.jpeg" alt="GRAND-D AGRO SERVICE" loading="lazy">
+        <div class="title">
+          <strong>GRAND‑D AGRO</strong>
+          <span>Production · Transformation · Distribution</span>
         </div>
-
-        <button class="menu-btn" id="menuBtn">☰</button>
-
-        <nav>
-          <a href="#about">À propos</a>
-          <a href="#founder">Fondateur</a>
-          <a href="#services">Services</a>
-          <a href="#products">Produits</a>
-          <a href="#stats">Nos chiffres</a>
-          <a href="#partners">Partenaires</a>
-          <a href="#gallery">Galerie</a>
-          <a href="#contact">Contact</a>
-          <a class="btn btn-primary" href="#contact">📩 Demander un devis</a>
-        </nav>
       </div>
 
-      <div class="mobile-nav" id="mobileNav">
+      <button class="menu-btn" id="menuBtn">☰</button>
+
+      <nav>
+        <a href="#home">Accueil</a>
         <a href="#about">À propos</a>
-        <a href="#founder">Fondateur</a>
         <a href="#services">Services</a>
         <a href="#products">Produits</a>
-        <a href="#stats">Nos chiffres</a>
-        <a href="#partners">Partenaires</a>
-        <a href="#gallery">Galerie</a>
         <a href="#contact">Contact</a>
-
-        <div class="mobile-cta">
-          <a class="btn btn-primary" href="#contact">📩 Demander un devis</a>
+        <div class="dropdown">
+          <span>Plus <i class="fas fa-chevron-down"></i></span>
+          <div class="dropdown-menu">
+            <a href="#founder">Fondateur</a>
+            <a href="#global">Notre vision</a>
+            <a href="#stats">Chiffres</a>
+            <a href="#partners">Partenaires</a>
+            <a href="#gallery">Galerie</a>
+          </div>
         </div>
+        <a class="btn btn-primary" href="#contact">Devis</a>
+      </nav>
+    </div>
+
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#home">Accueil</a>
+      <a href="#about">À propos</a>
+      <a href="#services">Services</a>
+      <a href="#products">Produits</a>
+      <a href="#founder">Fondateur</a>
+      <a href="#global">Notre vision</a>
+      <a href="#stats">Chiffres</a>
+      <a href="#partners">Partenaires</a>
+      <a href="#gallery">Galerie</a>
+      <a href="#contact">Contact</a>
+      <div class="mobile-cta">
+        <a class="btn btn-primary" href="#contact">📩 Demander un devis</a>
       </div>
     </div>
   </header>
 
   <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <div>
-          <h1>Votre partenaire de confiance en production et transformation agricole</h1>
-          <p>
-            GRAND-D AGRO SERVICE est une société ivoirienne basée à Abidjan (Yopougon).
-            Nous intervenons dans la production agricole, l’élevage, la transformation agroalimentaire,
-            la distribution et la commercialisation.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#services">🚜 Voir nos services</a>
-            <a class="btn btn-outline" href="https://wa.me/2250172513751" target="_blank">💬 WhatsApp direct</a>
-          </div>
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <img src="images/logo2.jpeg" alt="Champs agricoles">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="container hero-content">
+      <div>
+        <h1>
+          <span class="hero-highlight">L'agriculture</span><br> nouvelle génération
+        </h1>
+        <p>GRAND‑D AGRO SERVICE : production responsable, transformation moderne et distribution panafricaine.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#services">Explorer nos métiers</a>
+          <a class="btn-outline" href="https://wa.me/2250172513751" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
         </div>
-
-        <div class="hero-card">
-          <h3>Pourquoi nous choisir ?</h3>
-          <ul>
-            <li><span>✔</span> Produits de qualité & respect des normes</li>
-            <li><span>✔</span> Livraison rapide & suivi client</li>
-            <li><span>✔</span> Exportation sur le continent africain</li>
-            <li><span>✔</span> Services agricoles & logistiques</li>
-          </ul>
-        </div>
+      </div>
+      <div class="hero-card">
+        <h3>Pourquoi nous ?</h3>
+        <ul>
+          <li><span>✔</span> Qualité supérieure & traçabilité</li>
+          <li><span>✔</span> Livraison express & service client</li>
+          <li><span>✔</span> Exportation vers 5+ pays</li>
+          <li><span>✔</span> Conseil & accompagnement</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -854,53 +1011,36 @@
   <!-- ABOUT -->
   <section id="about" class="about reveal">
     <div class="container">
-      <h2>À propos de nous</h2>
-      <p>
-        GRAND-D AGRO SERVICE est une société ivoirienne spécialisée dans la production agricole, l’élevage,
-        la transformation agroalimentaire et la distribution de produits alimentaires.
-        Notre siège est situé à Abidjan, Yopougon Petit Toit Rouge.
-        Nous fournissons des services de qualité et exportons nos produits sur le continent africain.
-      </p>
+      <h2 class="section-title">Qui <span>sommes‑nous</span> ?</h2>
+      <p>Société ivoirienne basée à Yopougon, nous conjuguons tradition agricole et technologies modernes. De la production à la commercialisation, nous garantissons des produits sains et une traçabilité exemplaire. Notre mission : valoriser le terroir et nourrir l'Afrique.</p>
     </div>
   </section>
 
   <!-- FONDATEUR -->
   <section id="founder" class="founder reveal">
+    <div class="container founder-grid">
+      <div class="founder-photo">
+        <img src="images/momo.jpeg" alt="Diomandé Mohamed">
+      </div>
+      <div class="founder-content">
+        <h3>Diomandé Mohamed</h3>
+        <p>Fondateur de GRAND‑D AGRO SERVICE, il grandit dans les champs familiaux. Confronté aux difficultés de commercialisation, il décide de bâtir une structure capable d’offrir des débouchés justes aux producteurs.</p>
+        <p>Diplômé et visionnaire, il place l'humain et l'innovation au cœur de l'entreprise.</p>
+        <div class="founder-quote">« Une agriculture forte, c’est un peuple fort. »</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMAGE GLOBALE -->
+  <section id="global" class="global-image-section reveal">
     <div class="container">
-      <h2>Le Fondateur</h2>
-
-      <div class="founder-grid">
-        <div class="founder-photo">
-          <img src="images/momo.jpeg" alt="Photo de Diomandé Mohamed" loading="lazy">
-        </div>
-
-        <div class="founder-content">
-          <h3>Diomandé Mohamed</h3>
-
-          <p>
-            Diomandé Mohamed est le fondateur de <strong>GRAND-D AGRO SERVICE</strong>, une entreprise ivoirienne
-            spécialisée dans la production agricole, l’élevage, la transformation agroalimentaire et la distribution
-            de produits alimentaires.
-          </p>
-
-          <p>
-            Depuis son enfance, il a grandi au contact de l’agriculture à travers le travail de son père, qui cultivait
-            un jardin dans des conditions difficiles. Malgré des récoltes parfois très importantes — jusqu’à 20 tonnes
-            de produits comme le chou, la tomate, l’aubergine ou le piment — la commercialisation se faisait souvent
-            dans des conditions défavorables.
-          </p>
-
-          <p>
-            Cette réalité l’a poussé à bâtir une vision : créer une structure capable de soutenir les producteurs,
-            d’améliorer la commercialisation, et de valoriser la production locale. Après ses études universitaires,
-            il décide de fonder <strong>GRAND-D AGRO SERVICE</strong> avec une ambition claire : aider son père,
-            son village, et contribuer au développement agricole de la Côte d’Ivoire et au-delà.
-          </p>
-
-          <div class="founder-quote">
-            « Une agriculture forte, c’est un peuple fort. »
-          </div>
-        </div>
+      <h2 class="section-title">Notre <span>vision en action</span></h2>
+      <div class="section-subhead">Toutes nos activités réunies dans une seule image</div>
+      <div class="global-image-container">
+        <img src="images/moo1.jpeg" alt="Aperçu global des activités de GRAND-D AGRO SERVICE" loading="lazy">
+      </div>
+      <div class="global-caption">
+        De la production à la distribution, en passant par l'élevage et les services – une approche intégrée.
       </div>
     </div>
   </section>
@@ -908,235 +1048,99 @@
   <!-- SERVICES -->
   <section id="services" class="reveal">
     <div class="container">
-      <h2>Nos Services</h2>
-
+      <h2 class="section-title">Nos <span>services</span></h2>
+      <div class="section-subhead">Des prestations intégrées pour une agriculture performante</div>
       <div class="services-grid">
-        <div class="service">
-          <h3>🌱 Production Agricole</h3>
-          <p>Culture et production de produits agricoles en quantité et en qualité.</p>
-        </div>
-
-        <div class="service">
-          <h3>🐄 Élevage</h3>
-          <p>Élevage moderne et responsable pour une alimentation saine.</p>
-        </div>
-
-        <div class="service">
-          <h3>🥛 Transformation Agroalimentaire</h3>
-          <p>Produits laitiers, crème glacée, transformation et conditionnement.</p>
-        </div>
-
-        <div class="service">
-          <h3>🚚 Distribution & Commercialisation</h3>
-          <p>Vente, livraison et distribution nationale et internationale.</p>
-        </div>
-
-        <div class="service">
-          <h3>🧪 Vente d’intrants agricoles</h3>
-          <p>Semences, engrais, équipements et produits nécessaires à la production.</p>
-        </div>
-
-        <div class="service">
-          <h3>📦 Services logistiques & agricoles</h3>
-          <p>Assistance, conseil agricole, transport et suivi des livraisons.</p>
-        </div>
-
-        <div class="service">
-          <h3>🏠 Service Immobilier</h3>
-          <p>
-            Achat, vente, location et gestion de biens immobiliers.
-            Accompagnement des particuliers et entreprises.
-          </p>
-        </div>
-
-        <div class="service">
-          <h3>📚 Cours à Domicile (CD)</h3>
-          <p>
-            Encadrement scolaire personnalisé à domicile.
-            Préparation aux examens (CEPE, BEPC, BAC) et suivi académique.
-          </p>
-        </div>
-      </div>
-
-      <div class="cta-strip">
-        <div>
-          <h3>Besoin d’un devis rapide ?</h3>
-          <p>
-            Contactez-nous sur WhatsApp et recevez une réponse rapide avec un accompagnement personnalisé.
-          </p>
-        </div>
-        <a class="btn btn-primary" href="#contact">📩 Envoyer une demande</a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- PRODUITS -->
-  <section id="products" class="reveal">
-    <div class="container">
-      <h2>Nos Produits</h2>
-
-      <div class="products-grid">
-        <div class="product">
-          <div class="thumb">🥛</div>
-          <div class="content">
-            <h3>Produits Laitiers</h3>
-            <p>Lait, yaourt, beurre, crème et produits dérivés.</p>
-            <span class="tag">Qualité contrôlée</span>
-          </div>
-        </div>
-
-        <div class="product">
-          <div class="thumb">🍦</div>
-          <div class="content">
-            <h3>Crème Glacée</h3>
-            <p>Crèmes glacées produites et conditionnées dans le respect des normes.</p>
-            <span class="tag">Production locale</span>
-          </div>
-        </div>
-
-        <div class="product">
-          <div class="thumb">🥬</div>
-          <div class="content">
-            <h3>Produits Vivriers</h3>
-            <p>Légumes, tubercules et produits frais en grande quantité.</p>
-            <span class="tag">Disponibilité régulière</span>
-          </div>
-        </div>
-
-        <div class="product">
-          <div class="thumb">🌾</div>
-          <div class="content">
-            <h3>Produits Agricoles</h3>
-            <p>Culture et fourniture de produits agricoles selon les saisons.</p>
-            <span class="tag">Filière agricole</span>
-          </div>
-        </div>
-
-        <div class="product">
-          <div class="thumb">🧪</div>
-          <div class="content">
-            <h3>Intrants Agricoles</h3>
-            <p>Semences, engrais, produits et matériels agricoles.</p>
-            <span class="tag">Service complet</span>
-          </div>
-        </div>
-
-        <div class="product">
-          <div class="thumb">📦</div>
-          <div class="content">
-            <h3>Produits Transformés</h3>
-            <p>Conditionnement, transformation et distribution de produits locaux.</p>
-            <span class="tag">Prêt à livrer</span>
-          </div>
-        </div>
+        <div class="card"><div class="card-icon">🌱</div><h3>Production agricole</h3><p>Culture raisonnée de fruits, légumes et céréales.</p><span class="card-tag">Qualité</span></div>
+        <div class="card"><div class="card-icon">🐄</div><h3>Élevage</h3><p>Bovins, ovins et volailles en circuit respectueux.</p><span class="card-tag">Bien-être animal</span></div>
+        <div class="card"><div class="card-icon">🥛</div><h3>Transformation</h3><p>Produits laitiers, crèmes glacées et conditionnement.</p><span class="card-tag">Savoir-faire</span></div>
+        <div class="card"><div class="card-icon">🚚</div><h3>Distribution</h3><p>Livraison nationale et export vers l'Afrique.</p><span class="card-tag">Rapide</span></div>
+        <div class="card"><div class="card-icon">🧪</div><h3>Intrants</h3><p>Semences, engrais et matériel agricole.</p><span class="card-tag">Pro</span></div>
+        <div class="card"><div class="card-icon">📦</div><h3>Logistique</h3><p>Transport, stockage et conseil.</p><span class="card-tag">Sur mesure</span></div>
+        <div class="card"><div class="card-icon">🏠</div><h3>Immobilier</h3><p>Achat, vente, gestion de biens.</p><span class="card-tag">Accompagnement</span></div>
+        <div class="card"><div class="card-icon">📚</div><h3>Cours à domicile</h3><p>Soutien scolaire et préparation aux examens.</p><span class="card-tag">Pédagogie</span></div>
       </div>
     </div>
   </section>
 
-  <!-- NOS CHIFFRES -->
+  
+
+  <!-- STATS -->
   <section id="stats" class="reveal">
     <div class="container">
-      <h2>Nos Chiffres</h2>
-
+      <h2 class="section-title">Ils nous <span>font confiance</span></h2>
       <div class="stats-wrap">
-        <div class="stat">
-          <strong>+500</strong>
-          <span>Clients satisfaits</span>
-        </div>
-
-        <div class="stat">
-          <strong>+20</strong>
-          <span>Tonnes livrées</span>
-        </div>
-
-        <div class="stat">
-          <strong>+10</strong>
-          <span>Partenaires</span>
-        </div>
-
-        <div class="stat">
-          <strong>+5</strong>
-          <span>Pays couverts</span>
-        </div>
+        <div class="stat-item"><div class="stat-number">+500</div><div class="stat-label">Clients</div></div>
+        <div class="stat-item"><div class="stat-number">+20 t</div><div class="stat-label">Livrées / an</div></div>
+        <div class="stat-item"><div class="stat-number">12</div><div class="stat-label">Partenaires</div></div>
+        <div class="stat-item"><div class="stat-number">5</div><div class="stat-label">Pays</div></div>
       </div>
     </div>
   </section>
 
   <!-- PARTENAIRES -->
-  <section id="partners" class="reveal">
+  <section id="partners" class="partners-section reveal">
     <div class="container">
-      <h2>Nos Partenaires</h2>
-
-      <div class="partners-box">
-        <div class="partners-slider">
-          <!-- PREMIER GROUPE -->
-          <div class="partner"><img src="images/partner1.png" alt="Partenaire 1" loading="lazy"></div>
-          <div class="partner"><img src="images/partner2.png" alt="Partenaire 2" loading="lazy"></div>
-          <div class="partner"><img src="images/partner3.png" alt="Partenaire 3" loading="lazy"></div>
-          <div class="partner"><img src="images/partner4.png" alt="Partenaire 4" loading="lazy"></div>
-          <div class="partner"><img src="images/partner5.png" alt="Partenaire 5" loading="lazy"></div>
-
-          <!-- DEUXIEME GROUPE (COPIE POUR BOUCLE) -->
-          <div class="partner"><img src="images/partner1.png" alt="Partenaire 1" loading="lazy"></div>
-          <div class="partner"><img src="images/partner2.png" alt="Partenaire 2" loading="lazy"></div>
-          <div class="partner"><img src="images/partner3.png" alt="Partenaire 3" loading="lazy"></div>
-          <div class="partner"><img src="images/partner4.png" alt="Partenaire 4" loading="lazy"></div>
-          <div class="partner"><img src="images/partner5.png" alt="Partenaire 5" loading="lazy"></div>
+      <h2 class="section-title">Nos <span>partenaires</span></h2>
+      <div class="partners-slider">
+        <div class="slider-track">
+          <div class="partner-logo"><img src="images/partner1.png" alt=""></div>
+          <div class="partner-logo"><img src="images/partner2.png" alt=""></div>
+          <div class="partner-logo"><img src="images/partner3.png" alt=""></div>
+          <div class="partner-logo"><img src="images/partner4.png" alt=""></div>
+          <div class="partner-logo"><img src="images/partner5.png" alt=""></div>
+          <div class="partner-logo"><img src="images/partner1.png" alt=""></div>
+          <div class="partner-logo"><img src="images/partner2.png" alt=""></div>
+          <div class="partner-logo"><img src="images/partner3.png" alt=""></div>
+          <div class="partner-logo"><img src="images/partner4.png" alt=""></div>
+          <div class="partner-logo"><img src="images/partner5.png" alt=""></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- GALLERY -->
+  <!-- GALLERIE -->
   <section id="gallery" class="reveal">
     <div class="container">
-      <h2>Galerie</h2>
-
+      <h2 class="section-title">Ici c’est <span>chez nous</span></h2>
       <div class="gallery-grid">
-        <div class="media">
-          <img src="images/mi1.jpeg" alt="Production agricole" loading="lazy">
-          <div class="label">Production</div>
-        </div>
-
-        <div class="media">
-          <img src="images/mi2.jpeg" alt="Élevage" loading="lazy">
-          <div class="label">Transformation</div>
-        </div>
-
-        <div class="media">
-          <img src="images/mi3.jpeg" alt="Transformation" loading="lazy">
-          <div class="label">Élevage</div>
-        </div>
-
-        <div class="media">
-          <img src="images/mi4.jpeg" alt="Distribution" loading="lazy">
-          <div class="label">Distribution</div>
-        </div>
+        <div class="gallery-item"><img src="images/mi1.jpeg" alt=""><span class="gallery-label">Production</span></div>
+        <div class="gallery-item"><img src="images/mi2.jpeg" alt=""><span class="gallery-label">Transformation</span></div>
+        <div class="gallery-item"><img src="images/mi3.jpeg" alt=""><span class="gallery-label">Élevage</span></div>
+        <div class="gallery-item"><img src="images/mi4.jpeg" alt=""><span class="gallery-label">Distribution</span></div>
       </div>
     </div>
   </section>
+
+  <!-- CTA -->
+  <div class="container">
+    <div class="cta-strip">
+      <div>
+        <h3>Prêt à collaborer ?</h3>
+        <p>Un devis personnalisé en 24h. Contactez directement notre équipe.</p>
+      </div>
+      <a class="btn btn-primary" href="#contact">📩 Demander un devis</a>
+    </div>
+  </div>
 
   <!-- CONTACT -->
   <section id="contact" class="reveal">
     <div class="container">
-      <h2>Contactez-nous</h2>
-
+      <h2 class="section-title">Échangeons <span>ensemble</span></h2>
       <div class="contact-grid">
-        <form id="whatsappForm">
-          <input type="text" id="name" placeholder="Votre nom" required>
-          <input type="email" id="email" placeholder="Votre email" required>
-          <input type="text" id="subject" placeholder="Objet" required>
-          <textarea id="message" rows="5" placeholder="Votre message" required></textarea>
-          <button class="btn btn-primary" type="submit">💬 Envoyer sur WhatsApp</button>
+        <form class="contact-form" id="whatsappForm">
+          <div class="input-group"><input type="text" id="name" placeholder="Nom & prénom" required></div>
+          <div class="input-group"><input type="email" id="email" placeholder="Adresse email" required></div>
+          <div class="input-group"><input type="text" id="subject" placeholder="Objet" required></div>
+          <div class="input-group"><textarea id="message" rows="4" placeholder="Votre message..." required></textarea></div>
+          <button class="btn btn-primary" type="submit" style="width: 100%;"><i class="fab fa-whatsapp"></i> Envoyer sur WhatsApp</button>
         </form>
-
         <div class="contact-info">
-          <h3>Informations</h3>
-          <p><strong>📍 Adresse :</strong><br>Abidjan, Yopougon Petit Toit Rouge, Lot 15, Ilot 2</p>
-          <p><strong>📞 Téléphone :</strong><br><a href="tel:+2250172513751">01 72 51 37 51</a></p>
-          <p><strong>📧 Email :</strong><br><a href="mailto:contactgranddagroservice@gmail.com">contactgranddagroservice@gmail.com</a></p>
-          <p><strong>🌍 Zone :</strong><br>Côte d’Ivoire + Exportation Afrique</p>
+          <h3>Coordonnées</h3>
+          <div class="contact-detail"><i class="fas fa-map-pin"></i> <span>Yopougon Petit Toit Rouge, Lot 15, Abidjan</span></div>
+          <div class="contact-detail"><i class="fas fa-phone-alt"></i> <a href="tel:+2250172513751">+225 01 72 51 37 51</a></div>
+          <div class="contact-detail"><i class="fas fa-envelope"></i> <a href="mailto:contactgranddagroservice@gmail.com">contactgranddagroservice@gmail.com</a></div>
+          <div class="contact-detail"><i class="fas fa-globe"></i> <span>Export Afrique</span></div>
         </div>
       </div>
     </div>
@@ -1144,99 +1148,58 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="container">
-      <div class="footer-inner">
-        <p>&copy; 2026 GRAND-D AGRO SERVICE | SARL | Capital : 1 000 000 F CFA | RCS Abidjan | Site créé par Diomandé Mohamed</p>
-
-        <p>
-          <a href="https://www.facebook.com/profile.php?id=61587893614200" target="_blank">Facebook</a> |
-          <a href="#" target="_blank">Instagram</a> |
-          <a href="#" target="_blank">LinkedIn</a>
-        </p>
+    <div class="container footer-inner">
+       <p>&copy; 2026 GRAND-D AGRO SERVICE | SARL | Capital : 1 000 000 F CFA | RCS Abidjan | Site créé par Diomandé Mohamed</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/profile.php?id=61587893614200" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
       </div>
     </div>
   </footer>
 
-  <!-- WHATSAPP FLOAT -->
-  <a class="whatsapp-float" href="https://wa.me/2250172513751" target="_blank">
-    💬 WhatsApp
-  </a>
+  <!-- FLOATING BUTTONS -->
+  <a class="whatsapp-float" href="https://wa.me/2250172513751" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+  <div class="back-top" id="backTop"><i class="fas fa-arrow-up"></i></div>
 
-  <!-- BACK TO TOP -->
-  <div class="back-top" id="backTop">↑</div>
-
-  <!-- SCRIPT -->
   <script>
-    // MENU MOBILE
-    const menuBtn = document.getElementById("menuBtn");
-    const mobileNav = document.getElementById("mobileNav");
-
-    menuBtn.addEventListener("click", () => {
-      mobileNav.style.display = mobileNav.style.display === "block" ? "none" : "block";
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    menuBtn.addEventListener('click', () => {
+      mobileNav.style.display = mobileNav.style.display === 'block' ? 'none' : 'block';
+    });
+    document.querySelectorAll('.mobile-nav a').forEach(link => {
+      link.addEventListener('click', () => { mobileNav.style.display = 'none'; });
     });
 
-    document.querySelectorAll(".mobile-nav a").forEach(link => {
-      link.addEventListener("click", () => {
-        mobileNav.style.display = "none";
-      });
-    });
-
-    // WHATSAPP FORM
-    document.getElementById("whatsappForm").addEventListener("submit", function(e){
+    document.getElementById('whatsappForm').addEventListener('submit', function(e) {
       e.preventDefault();
-
-      let name = document.getElementById("name").value;
-      let email = document.getElementById("email").value;
-      let subject = document.getElementById("subject").value;
-      let message = document.getElementById("message").value;
-
-      let phoneNumber = "2250172513751";
-
-      let whatsappMessage =
-        "Bonjour GRAND-D AGRO SERVICE,%0A%0A" +
-        "Nom : " + encodeURIComponent(name) + "%0A" +
-        "Email : " + encodeURIComponent(email) + "%0A" +
-        "Objet : " + encodeURIComponent(subject) + "%0A%0A" +
-        "Message :%0A" + encodeURIComponent(message);
-
-      let whatsappURL = "https://wa.me/" + phoneNumber + "?text=" + whatsappMessage;
-
-      window.open(whatsappURL, "_blank");
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+      const phone = '2250172513751';
+      const text = `Bonjour GRAND‑D AGRO SERVICE,%0A%0ANom: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0AObjet: ${encodeURIComponent(subject)}%0A%0AMessage:%0A${encodeURIComponent(message)}`;
+      window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
     });
 
-    // ANIMATION AU SCROLL
-    const reveals = document.querySelectorAll(".reveal");
-
-    function revealOnScroll(){
+    const reveals = document.querySelectorAll('.reveal');
+    function checkReveal() {
       reveals.forEach(el => {
         const top = el.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-        if(top < windowHeight - 120){
-          el.classList.add("show");
-        }
+        const winH = window.innerHeight;
+        if (top < winH - 120) el.classList.add('show');
       });
     }
+    window.addEventListener('scroll', checkReveal);
+    checkReveal();
 
-    window.addEventListener("scroll", revealOnScroll);
-    revealOnScroll();
-
-    // BACK TO TOP
-    const backTop = document.getElementById("backTop");
-
-    window.addEventListener("scroll", () => {
-      if(window.scrollY > 500){
-        backTop.classList.add("show");
-      }else{
-        backTop.classList.remove("show");
-      }
+    const backTop = document.getElementById('backTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 500) backTop.classList.add('show');
+      else backTop.classList.remove('show');
     });
-
-    backTop.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
+    backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   </script>
-
 </body>
 </html>
-
-
