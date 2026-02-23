@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cours à domicile - GRAND‑D AGRO SERVICE</title>
+  <meta name="description" content="Soutien scolaire et préparation aux examens avec GRAND‑D AGRO SERVICE. Pédagogie personnalisée à domicile à Abidjan.">
+
+  <!-- Google Fonts : Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- Notre feuille de style principale -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER (identique à l'accueil) -->
+  <header>
+    <div class="container header-inner">
+      <div class="brand">
+        <a href="index.html"><img src="images/logo1.jpeg" alt="GRAND-D AGRO SERVICE" loading="lazy"></a>
+        <div class="title">
+          <strong>GRAND‑D AGRO</strong>
+          <span>Production · Transformation · Distribution</span>
+        </div>
+      </div>
+
+      <div class="lang-switcher">
+        <span class="active">FR</span>
+        <span>EN</span>
+      </div>
+
+      <button class="menu-btn" id="menuBtn">☰</button>
+
+      <nav>
+        <a href="index.html">Accueil</a>
+        <a href="index.html#about">À propos</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#products">Produits</a>
+        <a href="index.html#contact">Contact</a>
+        <div class="dropdown">
+          <span>Plus <i class="fas fa-chevron-down"></i></span>
+          <div class="dropdown-menu">
+            <a href="index.html#founder">Fondateur</a>
+            <a href="index.html#global">Notre vision</a>
+            <a href="index.html#stats">Chiffres</a>
+            <a href="index.html#partners">Partenaires</a>
+            <a href="index.html#gallery">Galerie</a>
+            <a href="index.html#testimonials">Témoignages</a>
+            <a href="index.html#team">Équipe</a>
+            <a href="index.html#blog">Blog</a>
+          </div>
+        </div>
+        <a class="btn btn-primary" href="https://wa.me/2250172513751?text=Bonjour%2C%20je%20souhaite%20obtenir%20un%20devis%20pour%20les%20cours%20à%20domicile." target="_blank">Devis</a>
+      </nav>
+    </div>
+
+    <div class="mobile-nav" id="mobileNav">
+      <a href="index.html">Accueil</a>
+      <a href="index.html#about">À propos</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#products">Produits</a>
+      <a href="index.html#founder">Fondateur</a>
+      <a href="index.html#global">Notre vision</a>
+      <a href="index.html#stats">Chiffres</a>
+      <a href="index.html#partners">Partenaires</a>
+      <a href="index.html#gallery">Galerie</a>
+      <a href="index.html#testimonials">Témoignages</a>
+      <a href="index.html#team">Équipe</a>
+      <a href="index.html#blog">Blog</a>
+      <a href="index.html#contact">Contact</a>
+      <div class="mobile-cta">
+        <a class="btn btn-primary" href="https://wa.me/2250172513751?text=Bonjour%2C%20je%20souhaite%20demander%20un%20devis%20pour%20les%20cours%20à%20domicile." target="_blank">📩 Demander un devis</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- FIL D'ACTUALITÉ HAUT -->
+  <div class="news-ticker top-ticker">
+    <div class="container" style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+      <span class="ticker-header"><i class="fas fa-bolt"></i> Flash info</span>
+      <div class="news-ticker-container" style="flex: 1;">
+        <div class="ticker-track">
+          <span class="ticker-item"><i class="fas fa-tag"></i> Nouveau : distribution de viande et poisson</span>
+          <span class="ticker-item"><i class="fas fa-handshake"></i> Partenariat avec une coopérative de maraîchers</span>
+          <span class="ticker-item"><i class="fas fa-seedling"></i> Promotion semences de tomate -30%</span>
+          <span class="ticker-item"><i class="fas fa-truck"></i> Livraison gratuite à partir de 50kg</span>
+          <span class="ticker-item"><i class="fas fa-apple-alt"></i> Arrivage salade, chou, tomate bio</span>
+          <span class="ticker-item"><i class="fas fa-fish"></i> Poisson frais tous les jeudis</span>
+          <!-- Doublon pour continuité -->
+          <span class="ticker-item"><i class="fas fa-tag"></i> Nouveau : distribution de viande et poisson</span>
+          <span class="ticker-item"><i class="fas fa-handshake"></i> Partenariat avec une coopérative de maraîchers</span>
+          <span class="ticker-item"><i class="fas fa-seedling"></i> Promotion semences de tomate -30%</span>
+          <span class="ticker-item"><i class="fas fa-truck"></i> Livraison gratuite à partir de 50kg</span>
+          <span class="ticker-item"><i class="fas fa-apple-alt"></i> Arrivage salade, chou, tomate bio</span>
+          <span class="ticker-item"><i class="fas fa-fish"></i> Poisson frais tous les jeudis</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION PRINCIPALE : COURS À DOMICILE -->
+  <section class="service-detail" style="padding: 4rem 0;">
+    <div class="container">
+      <a href="index.html#services" class="btn btn-outline" style="margin-bottom: 2rem; display: inline-block;">
+        <i class="fas fa-arrow-left"></i> Retour aux services
+      </a>
+      
+      <div class="service-header" style="display: flex; align-items: center; gap: 2rem; margin-bottom: 3rem; flex-wrap: wrap;">
+        <div class="service-icon" style="font-size: 5rem; background: var(--green-light); padding: 2rem; border-radius: 50%;">📚</div>
+        <div>
+          <h1 style="color: var(--green); margin: 0;">Cours à domicile</h1>
+          <p style="font-size: 1.2rem; color: var(--text-soft); max-width: 700px;">Soutien scolaire et préparation aux examens. Pédagogie personnalisée.</p>
+        </div>
+      </div>
+
+      <div class="service-content" style="display: grid; grid-template-columns: 2fr 1fr; gap: 2.5rem;">
+        <div>
+          <h2>Un accompagnement sur mesure pour la réussite scolaire</h2>
+          <p>Chez <strong>GRAND‑D AGRO SERVICE</strong>, nous étendons notre expertise à l’éducation en proposant des cours à domicile pour les élèves du primaire au lycée. Nos enseignants qualifiés interviennent dans toute la région d’Abidjan pour offrir un suivi personnalisé, de l’aide aux devoirs à la préparation des examens nationaux (BEPC, BAC).</p>
+          <p>Nous couvrons un large éventail de matières : mathématiques, français, physique-chimie, anglais, histoire-géographie, philosophie, etc. Chaque cours est adapté au rythme et aux besoins spécifiques de l’élève, avec des méthodes pédagogiques modernes et bienveillantes.</p>
+          <p>Notre objectif : renforcer la confiance, combler les lacunes et développer l’autonomie pour que chaque élève donne le meilleur de lui‑même.</p>
+          
+          <h3 style="margin-top: 2rem;">Matières enseignées</h3>
+          <ul style="columns: 2; list-style: none; padding-left: 0;">
+            <li><i class="fas fa-check-circle" style="color: var(--green);"></i> Mathématiques</li>
+            <li><i class="fas fa-check-circle" style="color: var(--green);"></i> Français / Littérature</li>
+            <li><i class="fas fa-check-circle" style="color: var(--green);"></i> Physique-Chimie</li>
+            <li><i class="fas fa-check-circle" style="color: var(--green);"></i> SVT</li>
+            <li><i class="fas fa-check-circle" style="color: var(--green);"></i> Anglais</li>
+            <li><i class="fas fa-check-circle" style="color: var(--green);"></i> Histoire-Géographie</li>
+            <li><i class="fas fa-check-circle" style="color: var(--green);"></i> Philosophie</li>
+            <li><i class="fas fa-check-circle" style="color: var(--green);"></i> Économie</li>
+          </ul>
+        </div>
+
+        <div>
+          <div style="background: var(--green-light); padding: 2rem; border-radius: 40px;">
+            <span class="card-tag" style="font-size: 1rem; background: var(--gold); color: white;">Pédagogie</span>
+            <h3 style="color: var(--green); margin-top: 1.5rem;">Informations clés</h3>
+            <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+              <li style="margin-bottom: 1rem;"><i class="fas fa-chalkboard-teacher" style="color: var(--gold); width: 2rem;"></i> Enseignants expérimentés</li>
+              <li style="margin-bottom: 1rem;"><i class="fas fa-calendar-alt" style="color: var(--gold); width: 2rem;"></i> Horaires flexibles (soir & week‑end)</li>
+              <li style="margin-bottom: 1rem;"><i class="fas fa-home" style="color: var(--gold); width: 2rem;"></i> Cours à domicile à Abidjan</li>
+              <li style="margin-bottom: 1rem;"><i class="fas fa-euro-sign" style="color: var(--gold); width: 2rem;"></i> Tarifs adaptés (forfaits mensuels)</li>
+              <li style="margin-bottom: 1rem;"><i class="fas fa-user-graduate" style="color: var(--gold); width: 2rem;"></i> Préparation examens (BEPC, BAC)</li>
+            </ul>
+            <!-- Lien WhatsApp direct -->
+            <a href="https://wa.me/2250172513751?text=Bonjour%2C%20je%20souhaite%20un%20devis%20pour%20les%20cours%20à%20domicile." target="_blank" class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;">
+              <i class="fab fa-whatsapp"></i> Demander un devis
+            </a>
+            <p style="font-size: 0.9rem; margin-top: 1rem; text-align: center;">
+              Réponse sous 24h
+            </p>
+          </div>
+          <div style="margin-top: 2rem; background: white; padding: 1.5rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+            <i class="fas fa-quote-left" style="color: var(--green-light); font-size: 2rem;"></i>
+            <p style="font-style: italic;">"Grâce aux cours de mathématiques, ma fille a gagné 4 points de moyenne. Un vrai professionnalisme !"</p>
+            <p style="font-weight: bold;">— Mme Kouamé, parent d’élève</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 4rem; text-align: center;">
+        <h3>Nos zones d'intervention</h3>
+        <p>Nous intervenons principalement à Abidjan (Yopougon, Cocody, Marcory, Treichville, etc.) et dans les localités environnantes (Anyama, Bingerville).</p>
+        <p><i class="fas fa-map-marker-alt" style="color: var(--gold);"></i> Déplacements possibles sur demande dans d’autres régions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIL D'ACTUALITÉ BAS -->
+  <div class="news-ticker bottom-ticker">
+    <div class="container" style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+      <span class="ticker-header"><i class="fas fa-megaphone"></i> Annonces</span>
+      <div class="news-ticker-container" style="flex: 1;">
+        <div class="ticker-track">
+          <span class="ticker-item"><i class="fas fa-tag"></i> 📍 Recrutement gérant(e) point de vente crèmes glacées à Abidjan</span>
+          <span class="ticker-item"><i class="fas fa-handshake"></i> Recherche partenaires pour distribution</span>
+          <span class="ticker-item"><i class="fas fa-seedling"></i> Nouvelle variété d'aubergine disponible</span>
+          <span class="ticker-item"><i class="fas fa-truck"></i> Livraison express vers toutes les régions</span>
+          <span class="ticker-item"><i class="fas fa-apple-alt"></i> Salade, chou, tomate à prix promo</span>
+          <span class="ticker-item"><i class="fas fa-fish"></i> Poisson fumé en stock</span>
+          <!-- Doublon pour continuité -->
+          <span class="ticker-item"><i class="fas fa-tag"></i> 📍 Recrutement gérant(e) point de vente crèmes glacées à Abidjan</span>
+          <span class="ticker-item"><i class="fas fa-handshake"></i> Recherche partenaires pour distribution</span>
+          <span class="ticker-item"><i class="fas fa-seedling"></i> Nouvelle variété d'aubergine disponible</span>
+          <span class="ticker-item"><i class="fas fa-truck"></i> Livraison express vers toutes les régions</span>
+          <span class="ticker-item"><i class="fas fa-apple-alt"></i> Salade, chou, tomate à prix promo</span>
+          <span class="ticker-item"><i class="fas fa-fish"></i> Poisson fumé en stock</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <p>&copy; 2026 GRAND-D AGRO SERVICE | SARL | Capital : 1 000 000 F CFA | RCS Abidjan</p>
+        <p class="footer-links">
+          <a href="#">Mentions légales</a> | <a href="#">Politique de confidentialité</a>
+        </p>
+      </div>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/profile.php?id=61587893614200" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING BUTTONS -->
+  <a class="whatsapp-float" href="https://wa.me/2250172513751" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+  <div class="back-top" id="backTop"><i class="fas fa-arrow-up"></i></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
