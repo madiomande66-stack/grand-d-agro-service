@@ -14,142 +14,429 @@
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-  <!-- Notre feuille de style principale -->
-  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ===== VARIABLES & RESET ===== */
+    :root {
+      --green: #2e7d32;
+      --green-light: #e8f5e9;
+      --gold: #ffb300;
+      --text-dark: #1f2937;
+      --text-soft: #4b5563;
+      --bg-light: #f9fafb;
+      --shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.02);
+      --shadow-hover: 0 20px 30px -10px rgba(0,0,0,0.15);
+      --transition: all 0.3s ease;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text-dark);
+      background: white;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; height: auto; display: block; }
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.8rem;
+      border-radius: 40px;
+      font-weight: 600;
+      transition: var(--transition);
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+    .btn-primary {
+      background: var(--green);
+      color: white;
+    }
+    .btn-primary:hover {
+      background: #1f5a23;
+      transform: scale(1.05);
+      box-shadow: var(--shadow-hover);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--green);
+      color: var(--green);
+    }
+    .btn-outline:hover {
+      background: var(--green);
+      color: white;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: white;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.04);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 2rem;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .brand img {
+      width: 70px;
+      border-radius: 12px;
+      transition: var(--transition);
+    }
+    .brand img:hover { transform: scale(1.05); }
+    .title {
+      display: flex;
+      flex-direction: column;
+    }
+    .title strong {
+      font-size: 1.4rem;
+      color: var(--green);
+      line-height: 1.2;
+    }
+    .title span {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      letter-spacing: 0.3px;
+    }
+
+    /* Lang switcher */
+    .lang-switcher {
+      display: flex;
+      gap: 0.5rem;
+      background: var(--green-light);
+      padding: 0.4rem 0.8rem;
+      border-radius: 40px;
+      font-weight: 600;
+    }
+    .lang-switcher span {
+      cursor: pointer;
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+      transition: var(--transition);
+    }
+    .lang-switcher span.active {
+      background: var(--green);
+      color: white;
+    }
+    .menu-btn { display: none; background: none; border: none; font-size: 2rem; cursor: pointer; }
+    nav { display: flex; align-items: center; gap: 1.5rem; }
+    nav a { font-weight: 500; transition: var(--transition); border-bottom: 2px solid transparent; }
+    nav a:hover { color: var(--green); border-bottom-color: var(--green); }
+    .dropdown { position: relative; }
+    .dropdown span { cursor: pointer; font-weight: 500; display: flex; align-items: center; gap: 0.3rem; }
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      box-shadow: var(--shadow);
+      border-radius: 20px;
+      padding: 1rem;
+      display: none;
+      flex-direction: column;
+      gap: 0.5rem;
+      min-width: 200px;
+      z-index: 100;
+    }
+    .dropdown:hover .dropdown-menu { display: flex; }
+    .dropdown-menu a { padding: 0.4rem 1rem; border-radius: 30px; }
+    .dropdown-menu a:hover { background: var(--green-light); }
+
+    /* Mobile nav */
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: white;
+      padding: 1.5rem;
+      gap: 1rem;
+      border-top: 1px solid #eee;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .mobile-nav.show { max-height: 600px; }
+    .mobile-cta { margin-top: 1rem; }
+
+    /* ===== NEWS TICKER ===== */
+    .news-ticker {
+      background: var(--green);
+      color: white;
+      padding: 0.6rem 0;
+      overflow: hidden;
+    }
+    .news-ticker-container {
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+    }
+    .ticker-track {
+      display: inline-block;
+      animation: ticker 30s linear infinite;
+    }
+    .ticker-track:hover { animation-play-state: paused; }
+    .ticker-item {
+      display: inline-block;
+      padding: 0 1.5rem;
+      font-size: 0.95rem;
+    }
+    .ticker-item i { margin-right: 0.4rem; color: var(--gold); }
+    .ticker-header {
+      background: rgba(255,255,255,0.2);
+      padding: 0.3rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .bottom-ticker { background: var(--gold); color: var(--text-dark); }
+
+    /* ===== SERVICE DETAIL ===== */
+    .service-detail { padding: 4rem 0; background: var(--bg-light); }
+    .service-header { margin-bottom: 3rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+    .service-icon {
+      font-size: 5rem;
+      background: var(--green-light);
+      padding: 2rem;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .service-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2.5rem;
+    }
+    .info-card {
+      background: var(--green-light);
+      padding: 2rem;
+      border-radius: 40px;
+      box-shadow: var(--shadow);
+    }
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 1rem;
+    }
+    .feature-list li {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .feature-list i {
+      color: var(--gold);
+      width: 1.8rem;
+      text-align: center;
+      font-size: 1.2rem;
+    }
+    .testimonial-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      margin-top: 2rem;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--text-dark);
+      color: white;
+      padding: 2rem 0;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-social { display: flex; gap: 1rem; }
+    .footer-social a {
+      background: rgba(255,255,255,0.1);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+    .footer-social a:hover { background: var(--green); transform: translateY(-3px); }
+
+    /* ===== FLOATING BUTTONS ===== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #25d366;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      box-shadow: var(--shadow-hover);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      z-index: 999;
+      transition: var(--transition);
+    }
+    .whatsapp-float:hover { background: #128C7E; transform: scale(1.05); }
+    .back-top {
+      position: fixed;
+      bottom: 2rem;
+      left: 2rem;
+      background: var(--gold);
+      color: var(--text-dark);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      z-index: 999;
+    }
+    .back-top:hover { background: var(--green); color: white; transform: translateY(-5px); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      nav { display: none; }
+      .menu-btn { display: block; }
+      .lang-switcher { margin-left: auto; }
+      .service-content { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .footer-inner { flex-direction: column; text-align: center; }
+      .brand .title strong { font-size: 1rem; }
+      .brand img { width: 50px; }
+      .service-header { flex-direction: column; text-align: center; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- HEADER (identique à l'accueil) -->
+  <!-- HEADER -->
   <header>
     <div class="container header-inner">
       <div class="brand">
         <a href="index.html"><img src="images/logo1.jpeg" alt="GRAND-D AGRO SERVICE" loading="lazy"></a>
         <div class="title">
           <strong>GRAND‑D AGRO</strong>
-          <span>Production · Transformation · Distribution</span>
+          
         </div>
       </div>
 
-      <div class="lang-switcher">
-        <span class="active">FR</span>
-        <span>EN</span>
+      <div class="lang-switcher" id="langSwitcher">
+        <span class="active" data-lang="fr">FR</span>
+        <span data-lang="en">EN</span>
       </div>
 
-      <button class="menu-btn" id="menuBtn">☰</button>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
 
       <nav>
-        <a href="index.html">Accueil</a>
-        <a href="index.html#about">À propos</a>
-        <a href="index.html#services">Services</a>
-        <a href="index.html#products">Produits</a>
-        <a href="index.html#contact">Contact</a>
+        <a href="index.html" data-i18n="nav_home">Accueil</a>
+        <a href="index.html#about" data-i18n="nav_about">À propos</a>
+        <a href="index.html#services" data-i18n="nav_services">Services</a>
+        <a href="index.html#products" data-i18n="nav_products">Produits</a>
+        <a href="index.html#contact" data-i18n="nav_contact">Contact</a>
         <div class="dropdown">
-          <span>Plus <i class="fas fa-chevron-down"></i></span>
+          <span><span data-i18n="nav_more">Plus</span> <i class="fas fa-chevron-down"></i></span>
           <div class="dropdown-menu">
-            <a href="index.html#founder">Fondateur</a>
-            <a href="index.html#global">Notre vision</a>
-            <a href="index.html#stats">Chiffres</a>
-            <a href="index.html#partners">Partenaires</a>
-            <a href="index.html#gallery">Galerie</a>
-            <a href="index.html#testimonials">Témoignages</a>
-            <a href="index.html#team">Équipe</a>
-            <a href="index.html#blog">Blog</a>
+            <a href="index.html#founder" data-i18n="nav_founder">Fondateur</a>
+            <a href="index.html#global" data-i18n="nav_vision">Notre vision</a>
+            <a href="index.html#stats" data-i18n="nav_stats">Chiffres</a>
+            <a href="index.html#partners" data-i18n="nav_partners">Partenaires</a>
+            <a href="index.html#gallery" data-i18n="nav_gallery">Galerie</a>
+            <a href="index.html#testimonials" data-i18n="nav_testimonials">Témoignages</a>
+            <a href="index.html#team" data-i18n="nav_team">Équipe</a>
+            <a href="index.html#blog" data-i18n="nav_blog">Blog</a>
           </div>
         </div>
-        <a class="btn btn-primary" href="https://wa.me/2250172513751?text=Bonjour%2C%20je%20souhaite%20obtenir%20un%20devis." target="_blank">Devis</a>
+        <a class="btn btn-primary" href="https://wa.me/2250172513751?text=Bonjour%2C%20je%20souhaite%20obtenir%20un%20devis%20pour%20l'élevage." target="_blank" data-i18n="nav_quote">Devis</a>
       </nav>
     </div>
 
     <div class="mobile-nav" id="mobileNav">
-      <a href="index.html">Accueil</a>
-      <a href="index.html#about">À propos</a>
-      <a href="index.html#services">Services</a>
-      <a href="index.html#products">Produits</a>
-      <a href="index.html#founder">Fondateur</a>
-      <a href="index.html#global">Notre vision</a>
-      <a href="index.html#stats">Chiffres</a>
-      <a href="index.html#partners">Partenaires</a>
-      <a href="index.html#gallery">Galerie</a>
-      <a href="index.html#testimonials">Témoignages</a>
-      <a href="index.html#team">Équipe</a>
-      <a href="index.html#blog">Blog</a>
-      <a href="index.html#contact">Contact</a>
+      <a href="index.html" data-i18n="nav_home">Accueil</a>
+      <a href="index.html#about" data-i18n="nav_about">À propos</a>
+      <a href="index.html#services" data-i18n="nav_services">Services</a>
+      <a href="index.html#products" data-i18n="nav_products">Produits</a>
+      <a href="index.html#founder" data-i18n="nav_founder">Fondateur</a>
+      <a href="index.html#global" data-i18n="nav_vision">Notre vision</a>
+      <a href="index.html#stats" data-i18n="nav_stats">Chiffres</a>
+      <a href="index.html#partners" data-i18n="nav_partners">Partenaires</a>
+      <a href="index.html#gallery" data-i18n="nav_gallery">Galerie</a>
+      <a href="index.html#testimonials" data-i18n="nav_testimonials">Témoignages</a>
+      <a href="index.html#team" data-i18n="nav_team">Équipe</a>
+      <a href="index.html#blog" data-i18n="nav_blog">Blog</a>
+      <a href="index.html#contact" data-i18n="nav_contact">Contact</a>
       <div class="mobile-cta">
-        <a class="btn btn-primary" href="https://wa.me/2250172513751?text=Bonjour%2C%20je%20souhaite%20demander%20un%20devis." target="_blank">📩 Demander un devis</a>
+        <a class="btn btn-primary" href="https://wa.me/2250172513751?text=Bonjour%2C%20je%20souhaite%20demander%20un%20devis%20pour%20l'élevage." target="_blank" data-i18n="mobile_quote">📩 Demander un devis</a>
       </div>
     </div>
   </header>
 
-  <!-- FIL D'ACTUALITÉ HAUT -->
+  <!-- FIL D'ACTUALITÉ HAUT (dynamique) -->
   <div class="news-ticker top-ticker">
     <div class="container" style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-      <span class="ticker-header"><i class="fas fa-bolt"></i> Flash info</span>
+      <span class="ticker-header"><i class="fas fa-bolt"></i> <span data-i18n="ticker_flash">Flash info</span></span>
       <div class="news-ticker-container" style="flex: 1;">
-        <div class="ticker-track">
-          <span class="ticker-item"><i class="fas fa-tag"></i> Nouveau : distribution de viande et poisson</span>
-          <span class="ticker-item"><i class="fas fa-handshake"></i> Partenariat avec une coopérative de maraîchers</span>
-          <span class="ticker-item"><i class="fas fa-seedling"></i> Promotion semences de tomate -30%</span>
-          <span class="ticker-item"><i class="fas fa-truck"></i> Livraison gratuite à partir de 50kg</span>
-          <span class="ticker-item"><i class="fas fa-apple-alt"></i> Arrivage salade, chou, tomate bio</span>
-          <span class="ticker-item"><i class="fas fa-fish"></i> Poisson frais tous les jeudis</span>
-          <!-- Doublon pour continuité -->
-          <span class="ticker-item"><i class="fas fa-tag"></i> Nouveau : distribution de viande et poisson</span>
-          <span class="ticker-item"><i class="fas fa-handshake"></i> Partenariat avec une coopérative de maraîchers</span>
-          <span class="ticker-item"><i class="fas fa-seedling"></i> Promotion semences de tomate -30%</span>
-          <span class="ticker-item"><i class="fas fa-truck"></i> Livraison gratuite à partir de 50kg</span>
-          <span class="ticker-item"><i class="fas fa-apple-alt"></i> Arrivage salade, chou, tomate bio</span>
-          <span class="ticker-item"><i class="fas fa-fish"></i> Poisson frais tous les jeudis</span>
-        </div>
+        <div class="ticker-track" id="topTickerTrack"></div>
       </div>
     </div>
   </div>
 
   <!-- SECTION PRINCIPALE : ÉLEVAGE -->
-  <section class="service-detail" style="padding: 4rem 0;">
+  <section class="service-detail">
     <div class="container">
       <a href="index.html#services" class="btn btn-outline" style="margin-bottom: 2rem; display: inline-block;">
-        <i class="fas fa-arrow-left"></i> Retour aux services
+        <i class="fas fa-arrow-left"></i> <span data-i18n="back_services">Retour aux services</span>
       </a>
       
-      <div class="service-header" style="display: flex; align-items: center; gap: 2rem; margin-bottom: 3rem; flex-wrap: wrap;">
-        <div class="service-icon" style="font-size: 5rem; background: var(--green-light); padding: 2rem; border-radius: 50%;">🐄</div>
+      <div class="service-header">
+        <div class="service-icon">🐄</div>
         <div>
-          <h1 style="color: var(--green); margin: 0;">Élevage</h1>
-          <p style="font-size: 1.2rem; color: var(--text-soft); max-width: 700px;">Bovins, ovins et volailles en circuit respectueux. Bien-être animal et qualité.</p>
+          <h1 style="color: var(--green); margin: 0;" data-i18n="elevage_title">Élevage</h1>
+          <p style="font-size: 1.2rem; color: var(--text-soft); max-width: 700px;" data-i18n="elevage_subtitle">Bovins, ovins et volailles en circuit respectueux. Bien-être animal et qualité.</p>
         </div>
       </div>
 
-      <div class="service-content" style="display: grid; grid-template-columns: 2fr 1fr; gap: 2.5rem;">
+      <div class="service-content">
         <div>
-          <h2>Un élevage responsable et durable</h2>
-          <p>Notre activité d'élevage repose sur le respect du bien-être animal et des pratiques durables. Nous élevons des bovins (viande et lait), des ovins et des volailles dans des conditions optimales, avec une alimentation saine et un suivi vétérinaire rigoureux.</p>
-          <p>Nous travaillons en circuit semi-extensif, permettant aux animaux de bénéficier de pâturages naturels tout en assurant une complémentation maîtrisée. Nos viandes et produits laitiers sont réputés pour leur qualité gustative et leur traçabilité exemplaire.</p>
-          <p>Nous proposons également des prestations de conseil en élevage et la vente d'animaux reproducteurs sélectionnés.</p>
+          <h2 data-i18n="elevage_section1_title">Un élevage responsable et durable</h2>
+          <p data-i18n="elevage_para1">Notre activité d'élevage repose sur le respect du bien-être animal et des pratiques durables. Nous élevons des bovins (viande et lait), des ovins et des volailles dans des conditions optimales, avec une alimentation saine et un suivi vétérinaire rigoureux.</p>
+          <p data-i18n="elevage_para2">Nous travaillons en circuit semi-extensif, permettant aux animaux de bénéficier de pâturages naturels tout en assurant une complémentation maîtrisée. Nos viandes et produits laitiers sont réputés pour leur qualité gustative et leur traçabilité exemplaire.</p>
+          <p data-i18n="elevage_para3">Nous proposons également des prestations de conseil en élevage et la vente d'animaux reproducteurs sélectionnés.</p>
         </div>
 
         <div>
-          <div style="background: var(--green-light); padding: 2rem; border-radius: 40px;">
-            <span class="card-tag" style="font-size: 1rem; background: var(--gold); color: white;">Bien-être animal</span>
-            <h3 style="color: var(--green); margin-top: 1.5rem;">Informations clés</h3>
-            <ul style="list-style: none; padding: 0; margin-top: 1rem;">
-              <li style="margin-bottom: 1rem;"><i class="fas fa-cow" style="color: var(--gold); width: 2rem;"></i> Bovins : races locales et améliorées</li>
-              <li style="margin-bottom: 1rem;"><i class="fas fa-sheep" style="color: var(--gold); width: 2rem;"></i> Ovins : moutons de case et brebis</li>
-              <li style="margin-bottom: 1rem;"><i class="fas fa-drumstick-bite" style="color: var(--gold); width: 2rem;"></i> Volailles : poulets, pintades, canards</li>
-              <li style="margin-bottom: 1rem;"><i class="fas fa-tint" style="color: var(--gold); width: 2rem;"></i> Production laitière (vaches)</li>
-              <li style="margin-bottom: 1rem;"><i class="fas fa-check-circle" style="color: var(--gold); width: 2rem;"></i> Certifié "Élevage Responsable"</li>
-            </ul>
+          <div class="info-card">
+            <span class="card-tag" style="display: inline-block; font-size: 1rem; background: var(--gold); color: white; padding: 0.3rem 1rem; border-radius: 40px; margin-bottom: 1rem;" data-i18n="elevage_tag">Bien-être animal</span>
+            <h3 style="color: var(--green);" data-i18n="elevage_info_title">Informations clés</h3>
+            <ul class="feature-list" id="infoList"></ul>
             <a href="https://wa.me/2250172513751?text=Bonjour%2C%20je%20souhaite%20un%20devis%20pour%20l'élevage." target="_blank" class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;">
-              <i class="fab fa-whatsapp"></i> Demander un devis
+              <i class="fab fa-whatsapp"></i> <span data-i18n="elevage_quote_btn">Demander un devis</span>
             </a>
-            <p style="font-size: 0.9rem; margin-top: 1rem; text-align: center;">
-              Réponse sous 24h
-            </p>
+            <p style="font-size: 0.9rem; margin-top: 1rem; text-align: center;" data-i18n="elevage_response">Réponse sous 24h</p>
           </div>
-          <div style="margin-top: 2rem; background: white; padding: 1.5rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
-            <i class="fas fa-quote-left" style="color: var(--green-light); font-size: 2rem;"></i>
-            <p style="font-style: italic;">"Je travaille avec GRAND-D AGRO pour l'approvisionnement en viande. Leur engagement pour la qualité est sans égal."</p>
-            <p style="font-weight: bold;">— Mme Konan, boucherie-charcuterie</p>
-          </div>
+          <div class="testimonial-card" id="testimonialCard"></div>
         </div>
       </div>
     </div>
@@ -158,23 +445,9 @@
   <!-- FIL D'ACTUALITÉ BAS -->
   <div class="news-ticker bottom-ticker">
     <div class="container" style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-      <span class="ticker-header"><i class="fas fa-megaphone"></i> Annonces</span>
+      <span class="ticker-header"><i class="fas fa-megaphone"></i> <span data-i18n="ticker_announce">Annonces</span></span>
       <div class="news-ticker-container" style="flex: 1;">
-        <div class="ticker-track">
-          <span class="ticker-item"><i class="fas fa-tag"></i> 📍 Recrutement gérant(e) point de vente crèmes glacées à Abidjan</span>
-          <span class="ticker-item"><i class="fas fa-handshake"></i> Recherche partenaires pour distribution</span>
-          <span class="ticker-item"><i class="fas fa-seedling"></i> Nouvelle variété d'aubergine disponible</span>
-          <span class="ticker-item"><i class="fas fa-truck"></i> Livraison express vers toutes les régions</span>
-          <span class="ticker-item"><i class="fas fa-apple-alt"></i> Salade, chou, tomate à prix promo</span>
-          <span class="ticker-item"><i class="fas fa-fish"></i> Poisson fumé en stock</span>
-          <!-- Doublon pour continuité -->
-          <span class="ticker-item"><i class="fas fa-tag"></i> 📍 Recrutement gérant(e) point de vente crèmes glacées à Abidjan</span>
-          <span class="ticker-item"><i class="fas fa-handshake"></i> Recherche partenaires pour distribution</span>
-          <span class="ticker-item"><i class="fas fa-seedling"></i> Nouvelle variété d'aubergine disponible</span>
-          <span class="ticker-item"><i class="fas fa-truck"></i> Livraison express vers toutes les régions</span>
-          <span class="ticker-item"><i class="fas fa-apple-alt"></i> Salade, chou, tomate à prix promo</span>
-          <span class="ticker-item"><i class="fas fa-fish"></i> Poisson fumé en stock</span>
-        </div>
+        <div class="ticker-track" id="bottomTickerTrack"></div>
       </div>
     </div>
   </div>
@@ -185,21 +458,223 @@
       <div>
         <p>&copy; 2026 GRAND-D AGRO SERVICE | SARL | Capital : 1 000 000 F CFA | RCS Abidjan</p>
         <p class="footer-links">
-          <a href="#">Mentions légales</a> | <a href="#">Politique de confidentialité</a>
+          <a href="#" data-i18n="legal">Mentions légales</a> | <a href="#" data-i18n="privacy">Politique de confidentialité</a>
         </p>
       </div>
       <div class="footer-social">
-        <a href="https://www.facebook.com/profile.php?id=61587893614200" target="_blank"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61587893614200" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
       </div>
     </div>
   </footer>
 
   <!-- FLOATING BUTTONS -->
   <a class="whatsapp-float" href="https://wa.me/2250172513751" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-  <div class="back-top" id="backTop"><i class="fas fa-arrow-up"></i></div>
+  <div class="back-top" id="backTop" aria-label="Retour en haut"><i class="fas fa-arrow-up"></i></div>
 
-  <script src="script.js"></script>
+  <script>
+    (function() {
+      // ========== DONNÉES DE TRADUCTION ==========
+      const translations = {
+        fr: {
+          nav_home: "Accueil",
+          nav_about: "À propos",
+          nav_services: "Services",
+          nav_products: "Produits",
+          nav_contact: "Contact",
+          nav_more: "Plus",
+          nav_founder: "Fondateur",
+          nav_vision: "Notre vision",
+          nav_stats: "Chiffres",
+          nav_partners: "Partenaires",
+          nav_gallery: "Galerie",
+          nav_testimonials: "Témoignages",
+          nav_team: "Équipe",
+          nav_blog: "Blog",
+          nav_quote: "Devis",
+          mobile_quote: "📩 Demander un devis",
+          back_services: "Retour aux services",
+          elevage_title: "Élevage",
+          elevage_subtitle: "Bovins, ovins et volailles en circuit respectueux. Bien-être animal et qualité.",
+          elevage_section1_title: "Un élevage responsable et durable",
+          elevage_para1: "Notre activité d'élevage repose sur le respect du bien-être animal et des pratiques durables. Nous élevons des bovins (viande et lait), des ovins et des volailles dans des conditions optimales, avec une alimentation saine et un suivi vétérinaire rigoureux.",
+          elevage_para2: "Nous travaillons en circuit semi-extensif, permettant aux animaux de bénéficier de pâturages naturels tout en assurant une complémentation maîtrisée. Nos viandes et produits laitiers sont réputés pour leur qualité gustative et leur traçabilité exemplaire.",
+          elevage_para3: "Nous proposons également des prestations de conseil en élevage et la vente d'animaux reproducteurs sélectionnés.",
+          elevage_tag: "Bien-être animal",
+          elevage_info_title: "Informations clés",
+          elevage_quote_btn: "Demander un devis",
+          elevage_response: "Réponse sous 24h",
+          legal: "Mentions légales",
+          privacy: "Politique de confidentialité",
+          ticker_flash: "Flash info",
+          ticker_announce: "Annonces",
+        },
+        en: {
+          nav_home: "Home",
+          nav_about: "About",
+          nav_services: "Services",
+          nav_products: "Products",
+          nav_contact: "Contact",
+          nav_more: "More",
+          nav_founder: "Founder",
+          nav_vision: "Our vision",
+          nav_stats: "Figures",
+          nav_partners: "Partners",
+          nav_gallery: "Gallery",
+          nav_testimonials: "Testimonials",
+          nav_team: "Team",
+          nav_blog: "Blog",
+          nav_quote: "Quote",
+          mobile_quote: "📩 Request a quote",
+          back_services: "Back to services",
+          elevage_title: "Livestock farming",
+          elevage_subtitle: "Cattle, sheep and poultry in a respectful system. Animal welfare and quality.",
+          elevage_section1_title: "Responsible and sustainable farming",
+          elevage_para1: "Our livestock activity is based on respect for animal welfare and sustainable practices. We raise cattle (meat and milk), sheep and poultry in optimal conditions, with healthy feed and rigorous veterinary monitoring.",
+          elevage_para2: "We work in a semi-extensive system, allowing animals to benefit from natural pastures while ensuring controlled supplementation. Our meats and dairy products are renowned for their taste quality and exemplary traceability.",
+          elevage_para3: "We also offer livestock consulting services and the sale of selected breeding animals.",
+          elevage_tag: "Animal welfare",
+          elevage_info_title: "Key information",
+          elevage_quote_btn: "Request a quote",
+          elevage_response: "Reply within 24h",
+          legal: "Legal notices",
+          privacy: "Privacy policy",
+          ticker_flash: "Flash info",
+          ticker_announce: "Announcements",
+        }
+      };
+
+      // ========== DONNÉES DES TICKERS (Élevage) ==========
+      const topTickerData = [
+        { icon: "fa-tag", textFr: "Nouveau : veaux de race disponible", textEn: "New: purebred calves available" },
+        { icon: "fa-handshake", textFr: "Partenariat avec un vétérinaire agréé", textEn: "Partnership with an approved veterinarian" },
+        { icon: "fa-seedling", textFr: "Alimentation bio pour volailles", textEn: "Organic feed for poultry" },
+        { icon: "fa-truck", textFr: "Livraison d'animaux sur le site", textEn: "On-site animal delivery" },
+        { icon: "fa-apple-alt", textFr: "Arrivage de poussins d'un jour", textEn: "Day-old chicks available" },
+        { icon: "fa-fish", textFr: "Aliments enrichis en oméga-3", textEn: "Omega-3 enriched feed" }
+      ];
+
+      const bottomTickerData = [
+        { icon: "fa-tag", textFr: "📍 Recrutement éleveur(se) qualifié(e)", textEn: "📍 Hiring qualified breeder" },
+        { icon: "fa-handshake", textFr: "Recherche partenaires pour alimentation", textEn: "Looking for feed partners" },
+        { icon: "fa-seedling", textFr: "Nouveau parcours d'élevage en extérieur", textEn: "New outdoor rearing area" },
+        { icon: "fa-truck", textFr: "Vente de fumier biologique", textEn: "Sale of organic manure" },
+        { icon: "fa-apple-alt", textFr: "Œufs frais de plein air en stock", textEn: "Fresh free-range eggs in stock" },
+        { icon: "fa-fish", textFr: "Viande bovine sous signe de qualité", textEn: "Quality-certified beef" }
+      ];
+
+      // ========== DONNÉES DES INFORMATIONS CLÉS ==========
+      const infoListData = {
+        fr: [
+          { icon: "fa-cow", text: "Bovins : races locales et améliorées" },
+          { icon: "fa-sheep", text: "Ovins : moutons de case et brebis" },
+          { icon: "fa-drumstick-bite", text: "Volailles : poulets, pintades, canards" },
+          { icon: "fa-tint", text: "Production laitière (vaches)" },
+          { icon: "fa-check-circle", text: "Certifié 'Élevage Responsable'" }
+        ],
+        en: [
+          { icon: "fa-cow", text: "Cattle: local and improved breeds" },
+          { icon: "fa-sheep", text: "Sheep: case sheep and ewes" },
+          { icon: "fa-drumstick-bite", text: "Poultry: chickens, guinea fowl, ducks" },
+          { icon: "fa-tint", text: "Milk production (cows)" },
+          { icon: "fa-check-circle", text: "Certified 'Responsible Farming'" }
+        ]
+      };
+
+      // ========== DONNÉES DU TÉMOIGNAGE ==========
+      const testimonialData = {
+        fr: { quote: "Je travaille avec GRAND-D AGRO pour l'approvisionnement en viande. Leur engagement pour la qualité est sans égal.", author: "Mme Konan, boucherie-charcuterie" },
+        en: { quote: "I work with GRAND-D AGRO for meat supply. Their commitment to quality is unmatched.", author: "Mrs. Konan, butcher-deli" }
+      };
+
+      // ========== FONCTION DE CHANGEMENT DE LANGUE ==========
+      function setLanguage(lang) {
+        document.documentElement.lang = lang;
+        // Mettre à jour les attributs data-i18n
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          if (translations[lang] && translations[lang][key]) {
+            el.textContent = translations[lang][key];
+          }
+        });
+
+        // Mettre à jour les tickers
+        renderTickers(lang);
+
+        // Mettre à jour la liste d'infos clés
+        const infoList = document.getElementById('infoList');
+        if (infoList) {
+          infoList.innerHTML = infoListData[lang].map(item => 
+            `<li><i class="fas ${item.icon}"></i> ${item.text}</li>`
+          ).join('');
+        }
+
+        // Mettre à jour le témoignage
+        const testimonialCard = document.getElementById('testimonialCard');
+        if (testimonialCard) {
+          testimonialCard.innerHTML = `
+            <i class="fas fa-quote-left" style="color: var(--green-light); font-size: 2rem;"></i>
+            <p style="font-style: italic;">"${testimonialData[lang].quote}"</p>
+            <p style="font-weight: bold;">— ${testimonialData[lang].author}</p>
+          `;
+        }
+
+        // Mettre à jour la classe active du switcher
+        document.querySelectorAll('.lang-switcher span').forEach(span => {
+          span.classList.toggle('active', span.dataset.lang === lang);
+        });
+      }
+
+      // ========== RENDU DES TICKERS ==========
+      function renderTickers(lang) {
+        const topTrack = document.getElementById('topTickerTrack');
+        const bottomTrack = document.getElementById('bottomTickerTrack');
+        if (topTrack) {
+          const items = topTickerData.map(item => 
+            `<span class="ticker-item"><i class="fas ${item.icon}"></i> ${lang === 'fr' ? item.textFr : item.textEn}</span>`
+          ).join('');
+          topTrack.innerHTML = items + items; // doublon pour continuité
+        }
+        if (bottomTrack) {
+          const items = bottomTickerData.map(item => 
+            `<span class="ticker-item"><i class="fas ${item.icon}"></i> ${lang === 'fr' ? item.textFr : item.textEn}</span>`
+          ).join('');
+          bottomTrack.innerHTML = items + items;
+        }
+      }
+
+      // ========== GESTIONNAIRES D'ÉVÉNEMENTS ==========
+      document.addEventListener('DOMContentLoaded', () => {
+        // Langue initiale (français)
+        setLanguage('fr');
+
+        // Switcher de langue
+        document.querySelectorAll('.lang-switcher span').forEach(span => {
+          span.addEventListener('click', (e) => {
+            const lang = e.target.dataset.lang;
+            setLanguage(lang);
+          });
+        });
+
+        // Menu mobile
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        menuBtn.addEventListener('click', () => {
+          mobileNav.classList.toggle('show');
+        });
+
+        // Retour en haut
+        document.getElementById('backTop').addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Fermer le menu mobile si on clique sur un lien
+        mobileNav.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => mobileNav.classList.remove('show'));
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
