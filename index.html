@@ -9,19 +9,7 @@
   <meta name="description" content="GRAND-D AGRO SERVICE – Production agricole, élevage, transformation et distribution en Côte d’Ivoire et en Afrique. Qualité, traçabilité, export.">
   <meta name="keywords" content="agriculture ivoirienne, élevage, semences, transformation agricole, GRAND-D AGRO SERVICE">
   <meta name="author" content="Diomandé Mohamed">
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.grand-dagro.com">
-  <meta property="og:title" content="GRAND‑D AGRO SERVICE – Innovation agricole">
-  <meta property="og:description" content="Production, transformation et distribution panafricaine. Qualité supérieure et traçabilité.">
-  <meta property="og:image" content="https://www.grand-dagro.com/images/og-image.jpg">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="GRAND‑D AGRO SERVICE – Innovation agricole">
-  <meta name="twitter:description" content="Production, transformation et distribution panafricaine.">
-  <meta name="twitter:image" content="https://www.grand-dagro.com/images/og-image.jpg">
+  <meta http-equiv="Content-Language" content="fr">
 
   <!-- Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
@@ -63,7 +51,7 @@
       "@type": "ContactPoint",
       "telephone": "+225-01-72-51-37-51",
       "contactType": "customer service",
-      "availableLanguage": "French"
+      "availableLanguage": ["French", "English"]
     }
   }
   </script>
@@ -76,58 +64,57 @@
       <div class="brand">
         <img src="images/logo1.jpeg" alt="GRAND-D AGRO SERVICE" loading="lazy">
         <div class="title">
-          <strong>GRAND‑D AGRO</strong>
-          <span>Production · Transformation · Distribution</span>
+          <strong>GRAND‑D AGRO SERVICE</strong>
         </div>
       </div>
 
-      <!-- Language switcher placeholder -->
+      <!-- Language switcher -->
       <div class="lang-switcher">
-        <span class="active">FR</span>
-        <span>EN</span>
+        <button class="lang-option active" data-lang="fr">FR</button>
+        <button class="lang-option" data-lang="en">EN</button>
       </div>
 
       <button class="menu-btn" id="menuBtn">☰</button>
 
       <nav>
-        <a href="#home">Accueil</a>
-        <a href="#about">À propos</a>
-        <a href="#services">Services</a>
-        <a href="#products">Produits</a>
-        <a href="#contact">Contact</a>
+        <a href="#home" data-i18n="nav_home">Accueil</a>
+        <a href="#about" data-i18n="nav_about">À propos</a>
+        <a href="#services" data-i18n="nav_services">Services</a>
+        <a href="#products" data-i18n="nav_products">Produits</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
         <div class="dropdown">
-          <span>Plus <i class="fas fa-chevron-down"></i></span>
+          <span data-i18n="nav_more">Plus <i class="fas fa-chevron-down"></i></span>
           <div class="dropdown-menu">
-            <a href="#founder">Fondateur</a>
-            <a href="#global">Notre vision</a>
-            <a href="#stats">Chiffres</a>
-            <a href="#partners">Partenaires</a>
-            <a href="#gallery">Galerie</a>
-            <a href="#testimonials">Témoignages</a>
-            <a href="#team">Équipe</a>
-            <a href="#blog">Blog</a>
+            <a href="#founder" data-i18n="nav_founder">Fondateur</a>
+            <a href="#global" data-i18n="nav_vision">Notre vision</a>
+            <a href="#stats" data-i18n="nav_stats">Chiffres</a>
+            <a href="#partners" data-i18n="nav_partners">Partenaires</a>
+            <a href="#gallery" data-i18n="nav_gallery">Galerie</a>
+            <a href="#testimonials" data-i18n="nav_testimonials">Témoignages</a>
+            <a href="#team" data-i18n="nav_team">Équipe</a>
+            <a href="#blog" data-i18n="nav_blog">Blog</a>
           </div>
         </div>
-        <a class="btn btn-primary" href="#contact">Devis</a>
+        <a class="btn btn-primary" href="#contact" data-i18n="nav_quote">Devis</a>
       </nav>
     </div>
 
     <div class="mobile-nav" id="mobileNav">
-      <a href="#home">Accueil</a>
-      <a href="#about">À propos</a>
-      <a href="#services">Services</a>
-      <a href="#products">Produits</a>
-      <a href="#founder">Fondateur</a>
-      <a href="#global">Notre vision</a>
-      <a href="#stats">Chiffres</a>
-      <a href="#partners">Partenaires</a>
-      <a href="#gallery">Galerie</a>
-      <a href="#testimonials">Témoignages</a>
-      <a href="#team">Équipe</a>
-      <a href="#blog">Blog</a>
-      <a href="#contact">Contact</a>
+      <a href="#home" data-i18n="nav_home">Accueil</a>
+      <a href="#about" data-i18n="nav_about">À propos</a>
+      <a href="#services" data-i18n="nav_services">Services</a>
+      <a href="#products" data-i18n="nav_products">Produits</a>
+      <a href="#founder" data-i18n="nav_founder">Fondateur</a>
+      <a href="#global" data-i18n="nav_vision">Notre vision</a>
+      <a href="#stats" data-i18n="nav_stats">Chiffres</a>
+      <a href="#partners" data-i18n="nav_partners">Partenaires</a>
+      <a href="#gallery" data-i18n="nav_gallery">Galerie</a>
+      <a href="#testimonials" data-i18n="nav_testimonials">Témoignages</a>
+      <a href="#team" data-i18n="nav_team">Équipe</a>
+      <a href="#blog" data-i18n="nav_blog">Blog</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
       <div class="mobile-cta">
-        <a class="btn btn-primary" href="#contact">📩 Demander un devis</a>
+        <a class="btn btn-primary" href="#contact" data-i18n="mobile_quote">📩 Demander un devis</a>
       </div>
     </div>
   </header>
@@ -135,22 +122,22 @@
   <!-- FIL D'ACTUALITÉ HAUT -->
   <div class="news-ticker top-ticker">
     <div class="container" style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-      <span class="ticker-header"><i class="fas fa-bolt"></i> Flash info</span>
+      <span class="ticker-header"><i class="fas fa-bolt"></i> <span data-i18n="ticker_flash">Flash info</span></span>
       <div class="news-ticker-container" style="flex: 1;">
         <div class="ticker-track">
-          <span class="ticker-item"><i class="fas fa-tag"></i> Nouveau : distribution de viande et poisson</span>
-          <span class="ticker-item"><i class="fas fa-handshake"></i> Partenariat avec une coopérative de maraîchers</span>
-          <span class="ticker-item"><i class="fas fa-seedling"></i> Promotion semences de tomate -30%</span>
-          <span class="ticker-item"><i class="fas fa-truck"></i> Livraison gratuite à partir de 50kg</span>
-          <span class="ticker-item"><i class="fas fa-apple-alt"></i> Arrivage salade, chou, tomate bio</span>
-          <span class="ticker-item"><i class="fas fa-fish"></i> Poisson frais tous les jeudis</span>
+          <span class="ticker-item"><i class="fas fa-tag"></i> <span data-i18n="ticker1">Nouveau : distribution de viande et poisson</span></span>
+          <span class="ticker-item"><i class="fas fa-handshake"></i> <span data-i18n="ticker2">Partenariat avec une coopérative de maraîchers</span></span>
+          <span class="ticker-item"><i class="fas fa-seedling"></i> <span data-i18n="ticker3">Promotion semences de tomate -30%</span></span>
+          <span class="ticker-item"><i class="fas fa-truck"></i> <span data-i18n="ticker4">Livraison gratuite à partir de 50kg</span></span>
+          <span class="ticker-item"><i class="fas fa-apple-alt"></i> <span data-i18n="ticker5">Arrivage salade, chou, tomate bio</span></span>
+          <span class="ticker-item"><i class="fas fa-fish"></i> <span data-i18n="ticker6">Poisson frais tous les jeudis</span></span>
           <!-- Doublon pour continuité -->
-          <span class="ticker-item"><i class="fas fa-tag"></i> Nouveau : distribution de viande et poisson</span>
-          <span class="ticker-item"><i class="fas fa-handshake"></i> Partenariat avec une coopérative de maraîchers</span>
-          <span class="ticker-item"><i class="fas fa-seedling"></i> Promotion semences de tomate -30%</span>
-          <span class="ticker-item"><i class="fas fa-truck"></i> Livraison gratuite à partir de 50kg</span>
-          <span class="ticker-item"><i class="fas fa-apple-alt"></i> Arrivage salade, chou, tomate bio</span>
-          <span class="ticker-item"><i class="fas fa-fish"></i> Poisson frais tous les jeudis</span>
+          <span class="ticker-item"><i class="fas fa-tag"></i> <span data-i18n="ticker1">Nouveau : distribution de viande et poisson</span></span>
+          <span class="ticker-item"><i class="fas fa-handshake"></i> <span data-i18n="ticker2">Partenariat avec une coopérative de maraîchers</span></span>
+          <span class="ticker-item"><i class="fas fa-seedling"></i> <span data-i18n="ticker3">Promotion semences de tomate -30%</span></span>
+          <span class="ticker-item"><i class="fas fa-truck"></i> <span data-i18n="ticker4">Livraison gratuite à partir de 50kg</span></span>
+          <span class="ticker-item"><i class="fas fa-apple-alt"></i> <span data-i18n="ticker5">Arrivage salade, chou, tomate bio</span></span>
+          <span class="ticker-item"><i class="fas fa-fish"></i> <span data-i18n="ticker6">Poisson frais tous les jeudis</span></span>
         </div>
       </div>
     </div>
@@ -159,7 +146,7 @@
   <!-- HERO -->
   <section class="hero" id="home">
     <div class="hero-bg">
-      <img src="images/logo2.jpeg" alt="Champs agricoles" loading="lazy">
+      <img src="images/logo2.jpeg" alt="Champs agricoles" loading="lazy" data-i18n-alt="hero_image_alt">
     </div>
     <div class="hero-overlay"></div>
     <div class="shape shape-1"></div>
@@ -167,28 +154,20 @@
     <div class="container hero-content">
       <div>
         <h1>
-          <span class="hero-highlight">L'agriculture</span><br> nouvelle génération
+          <span class="hero-highlight" data-i18n="hero_highlight">L'agriculture</span><br> <span data-i18n="hero_sub">nouvelle génération</span>
         </h1>
-        <p>GRAND‑D AGRO SERVICE : production responsable, transformation moderne et distribution panafricaine.</p>
+        <p data-i18n="hero_text">GRAND‑D AGRO SERVICE : production responsable, transformation moderne et distribution panafricaine.</p>
         <div class="hero-actions">
-          <a class="btn" href="#services">Explorer nos métiers</a>
-          <a class="btn-outline" href="https://wa.me/2250172513751" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-        </div>
-        <!-- Share buttons -->
-        <div class="share-buttons" style="justify-content: flex-start; margin-top: 2rem;">
-          <a href="#" class="share-btn"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="share-btn"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="share-btn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#" class="share-btn"><i class="fab fa-whatsapp"></i></a>
+          <a class="btn" href="#services" data-i18n="hero_btn_explore">Explorer nos métiers</a>
         </div>
       </div>
       <div class="hero-card">
-        <h3>Pourquoi nous ?</h3>
+        <h3 data-i18n="hero_why_title">Pourquoi nous ?</h3>
         <ul>
-          <li><span>✔</span> Qualité supérieure & traçabilité</li>
-          <li><span>✔</span> Livraison express & service client</li>
-          <li><span>✔</span> Exportation vers 5+ pays</li>
-          <li><span>✔</span> Conseil & accompagnement</li>
+          <li><span>✔</span> <span data-i18n="hero_why1">Qualité supérieure & traçabilité</span></li>
+          <li><span>✔</span> <span data-i18n="hero_why2">Livraison express & service client</span></li>
+          <li><span>✔</span> <span data-i18n="hero_why3">Exportation vers 5+ pays</span></li>
+          <li><span>✔</span> <span data-i18n="hero_why4">Conseil & accompagnement</span></li>
         </ul>
       </div>
     </div>
@@ -197,8 +176,8 @@
   <!-- ABOUT -->
   <section id="about" class="about reveal">
     <div class="container">
-      <h2 class="section-title">Qui <span>sommes‑nous</span> ?</h2>
-      <p>Société ivoirienne basée à Yopougon, nous conjuguons tradition agricole et technologies modernes. De la production à la commercialisation, nous garantissons des produits sains et une traçabilité exemplaire. Notre mission : valoriser le terroir et nourrir l'Afrique.</p>
+      <h2 class="section-title"><span data-i18n="about_who">Qui</span> <span data-i18n="about_are_we">sommes‑nous</span> ?</h2>
+      <p data-i18n="about_text">Société ivoirienne basée à Yopougon, nous conjuguons tradition agricole et technologies modernes. De la production à la commercialisation, nous garantissons des produits sains et une traçabilité exemplaire. Notre mission : valoriser le terroir et nourrir l'Afrique.</p>
     </div>
   </section>
 
@@ -209,10 +188,10 @@
         <img src="images/momo.jpeg" alt="Diomandé Mohamed" loading="lazy">
       </div>
       <div class="founder-content">
-        <h3>Diomandé Mohamed</h3>
-        <p>Fondateur de GRAND‑D AGRO SERVICE, il grandit dans les champs familiaux. Confronté aux difficultés de commercialisation, il décide de bâtir une structure capable d’offrir des débouchés justes aux producteurs.</p>
-        <p>Diplômé et visionnaire, il place l'humain et l'innovation au cœur de l'entreprise.</p>
-        <div class="founder-quote">« Une agriculture forte, c’est un peuple fort. »</div>
+        <h3 data-i18n="founder_name">Diomandé Mohamed</h3>
+        <p data-i18n="founder_text1">Fondateur de GRAND‑D AGRO SERVICE, il grandit dans les champs familiaux. Confronté aux difficultés de commercialisation, il décide de bâtir une structure capable d’offrir des débouchés justes aux producteurs.</p>
+        <p data-i18n="founder_text2">Diplômé et visionnaire, il place l'humain et l'innovation au cœur de l'entreprise.</p>
+        <div class="founder-quote" data-i18n="founder_quote">« Une agriculture forte, c’est un peuple fort. »</div>
       </div>
     </div>
   </section>
@@ -220,46 +199,44 @@
   <!-- IMAGE GLOBALE -->
   <section id="global" class="global-image-section reveal">
     <div class="container">
-      <h2 class="section-title">Notre <span>vision en action</span></h2>
-      <div class="section-subhead">Toutes nos activités réunies dans une seule image</div>
+      <h2 class="section-title"><span data-i18n="global_our">Notre</span> <span data-i18n="global_vision">vision en action</span></h2>
+      <div class="section-subhead" data-i18n="global_subhead">Toutes nos activités réunies dans une seule image</div>
       <div class="global-image-container">
-        <img src="images/moo1.jpeg" alt="Aperçu global des activités" loading="lazy">
+        <img src="images/moo1.jpeg" alt="Aperçu global des activités" loading="lazy" data-i18n-alt="global_image_alt">
       </div>
-      <div class="global-caption">
-        De la production à la distribution, en passant par l'élevage et les services – une approche intégrée.
-      </div>
+      <div class="global-caption" data-i18n="global_caption">De la production à la distribution, en passant par l'élevage et les services – une approche intégrée.</div>
     </div>
   </section>
 
   <!-- SERVICES avec liens vers pages individuelles -->
   <section id="services" class="reveal">
     <div class="container">
-      <h2 class="section-title">Nos <span>services</span></h2>
-      <div class="section-subhead">Des prestations intégrées pour une agriculture performante</div>
+      <h2 class="section-title"><span data-i18n="services_our">Nos</span> <span data-i18n="services_services">services</span></h2>
+      <div class="section-subhead" data-i18n="services_subhead">Des prestations intégrées pour une agriculture performante</div>
       <div class="services-grid">
         <a href="service-production-agricole.html" style="text-decoration: none; color: inherit;">
-          <div class="card"><div class="card-icon">🌱</div><h3>Production agricole</h3><p>Culture raisonnée de fruits, légumes et céréales.</p><span class="card-tag">Qualité</span></div>
+          <div class="card"><div class="card-icon">🌱</div><h3 data-i18n="service1_title">Production agricole</h3><p data-i18n="service1_desc">Culture raisonnée de fruits, légumes et céréales.</p><span class="card-tag" data-i18n="service1_tag">Qualité</span></div>
         </a>
         <a href="service-elevage.html" style="text-decoration: none; color: inherit;">
-          <div class="card"><div class="card-icon">🐄</div><h3>Élevage</h3><p>Bovins, ovins et volailles en circuit respectueux.</p><span class="card-tag">Bien-être animal</span></div>
+          <div class="card"><div class="card-icon">🐄</div><h3 data-i18n="service2_title">Élevage</h3><p data-i18n="service2_desc">Bovins, ovins et volailles en circuit respectueux.</p><span class="card-tag" data-i18n="service2_tag">Bien-être animal</span></div>
         </a>
         <a href="service-transformation.html" style="text-decoration: none; color: inherit;">
-          <div class="card"><div class="card-icon">🥛</div><h3>Transformation</h3><p>Produits laitiers, crèmes glacées et conditionnement.</p><span class="card-tag">Savoir-faire</span></div>
+          <div class="card"><div class="card-icon">🥛</div><h3 data-i18n="service3_title">Transformation</h3><p data-i18n="service3_desc">Produits laitiers, crèmes glacées et conditionnement.</p><span class="card-tag" data-i18n="service3_tag">Savoir-faire</span></div>
         </a>
         <a href="service-distribution.html" style="text-decoration: none; color: inherit;">
-          <div class="card"><div class="card-icon">🚚</div><h3>Distribution</h3><p>Livraison nationale et export vers l'Afrique.</p><span class="card-tag">Rapide</span></div>
+          <div class="card"><div class="card-icon">🚚</div><h3 data-i18n="service4_title">Distribution</h3><p data-i18n="service4_desc">Livraison nationale et export vers l'Afrique.</p><span class="card-tag" data-i18n="service4_tag">Rapide</span></div>
         </a>
         <a href="service-intrants.html" style="text-decoration: none; color: inherit;">
-          <div class="card"><div class="card-icon">🧪</div><h3>Intrants</h3><p>Semences, engrais et matériel agricole.</p><span class="card-tag">Pro</span></div>
+          <div class="card"><div class="card-icon">🧪</div><h3 data-i18n="service5_title">Intrants</h3><p data-i18n="service5_desc">Semences, engrais et matériel agricole.</p><span class="card-tag" data-i18n="service5_tag">Pro</span></div>
         </a>
         <a href="service-logistique.html" style="text-decoration: none; color: inherit;">
-          <div class="card"><div class="card-icon">📦</div><h3>Logistique</h3><p>Transport, stockage et conseil.</p><span class="card-tag">Sur mesure</span></div>
+          <div class="card"><div class="card-icon">📦</div><h3 data-i18n="service6_title">Logistique</h3><p data-i18n="service6_desc">Transport, stockage et conseil.</p><span class="card-tag" data-i18n="service6_tag">Sur mesure</span></div>
         </a>
         <a href="service-immobilier.html" style="text-decoration: none; color: inherit;">
-          <div class="card"><div class="card-icon">🏠</div><h3>Immobilier</h3><p>Achat, vente, gestion de biens.</p><span class="card-tag">Accompagnement</span></div>
+          <div class="card"><div class="card-icon">🏠</div><h3 data-i18n="service7_title">Immobilier</h3><p data-i18n="service7_desc">Achat, vente, gestion de biens.</p><span class="card-tag" data-i18n="service7_tag">Accompagnement</span></div>
         </a>
         <a href="service-cours.html" style="text-decoration: none; color: inherit;">
-          <div class="card"><div class="card-icon">📚</div><h3>Cours à domicile</h3><p>Soutien scolaire et préparation aux examens.</p><span class="card-tag">Pédagogie</span></div>
+          <div class="card"><div class="card-icon">📚</div><h3 data-i18n="service8_title">Cours à domicile</h3><p data-i18n="service8_desc">Soutien scolaire et préparation aux examens.</p><span class="card-tag" data-i18n="service8_tag">Pédagogie</span></div>
         </a>
       </div>
     </div>
@@ -268,36 +245,20 @@
   <!-- PRODUITS avec liens vers pages individuelles -->
   <section id="products" class="reveal">
     <div class="container">
-      <h2 class="section-title">Nos <span>produits</span></h2>
-      <div class="section-subhead">Des produits de qualité, issus de nos exploitations</div>
+      <h2 class="section-title"><span data-i18n="products_our">Nos</span> <span data-i18n="products_products">produits</span></h2>
+      <div class="section-subhead" data-i18n="products_subhead">Des produits de qualité, issus de nos exploitations</div>
       <div class="search-box">
-        <input type="text" id="productSearch" placeholder="Rechercher un produit...">
+        <input type="text" id="productSearch" placeholder="Rechercher un produit..." data-i18n-placeholder="products_search">
       </div>
       <div class="products-grid" id="productsGrid">
-        
-          <div class="card"><div class="card-icon">🌽</div><h3>Maïs bio</h3><p>Maïs blanc et jaune, cultivé sans pesticides.</p><span class="card-tag">Certifié</span></div>
-        </a>
-        
-          <div class="card"><div class="card-icon">🍠</div><h3>Manioc</h3><p>Racines fraîches ou transformées en attiéké.</p><span class="card-tag">Tradition</span></div>
-        </a>
-        
-          <div class="card"><div class="card-icon">🥛</div><h3>Lait frais</h3><p>Lait de vache pasteurisé, riche en saveur.</p><span class="card-tag">Frais</span></div>
-        </a>
-        
-          <div class="card"><div class="card-icon">🍦</div><h3>Crèmes glacées</h3><p>Desserts lactés artisanaux.</p><span class="card-tag">Gourmand</span></div>
-        </a>
-        
-          <div class="card"><div class="card-icon">🌱</div><h3>Semences</h3><p>Semences améliorées de maïs, tomate, etc.</p><span class="card-tag">Haute qualité</span></div>
-        </a>
-        
-          <div class="card"><div class="card-icon">🧴</div><h3>Engrais bio</h3><p>Fertilisants naturels pour vos cultures.</p><span class="card-tag">Eco</span></div>
-        </a>
-        
-          <div class="card"><div class="card-icon">🥬</div><h3>Légumes frais</h3><p>Salade, chou, tomate, aubergine, gombo et plus.</p><span class="card-tag">Primeur</span></div>
-        </a>
-        
-          <div class="card"><div class="card-icon">🥩</div><h3>Viande & poisson</h3><p>Bœuf, poulet, poisson frais et surgelé.</p><span class="card-tag">Frais</span></div>
-        </a>
+        <div class="card"><div class="card-icon">🌽</div><h3 data-i18n="product1_title">Maïs bio</h3><p data-i18n="product1_desc">Maïs blanc et jaune, cultivé sans pesticides.</p><span class="card-tag" data-i18n="product1_tag">Certifié</span></div>
+        <div class="card"><div class="card-icon">🍠</div><h3 data-i18n="product2_title">Manioc</h3><p data-i18n="product2_desc">Racines fraîches ou transformées en attiéké.</p><span class="card-tag" data-i18n="product2_tag">Tradition</span></div>
+        <div class="card"><div class="card-icon">🥛</div><h3 data-i18n="product3_title">Lait frais</h3><p data-i18n="product3_desc">Lait de vache pasteurisé, riche en saveur.</p><span class="card-tag" data-i18n="product3_tag">Frais</span></div>
+        <div class="card"><div class="card-icon">🍦</div><h3 data-i18n="product4_title">Crèmes glacées</h3><p data-i18n="product4_desc">Desserts lactés artisanaux.</p><span class="card-tag" data-i18n="product4_tag">Gourmand</span></div>
+        <div class="card"><div class="card-icon">🌱</div><h3 data-i18n="product5_title">Semences</h3><p data-i18n="product5_desc">Semences améliorées de maïs, tomate, etc.</p><span class="card-tag" data-i18n="product5_tag">Haute qualité</span></div>
+        <div class="card"><div class="card-icon">🧴</div><h3 data-i18n="product6_title">Engrais bio</h3><p data-i18n="product6_desc">Fertilisants naturels pour vos cultures.</p><span class="card-tag" data-i18n="product6_tag">Eco</span></div>
+        <div class="card"><div class="card-icon">🥬</div><h3 data-i18n="product7_title">Légumes frais</h3><p data-i18n="product7_desc">Salade, chou, tomate, aubergine, gombo et plus.</p><span class="card-tag" data-i18n="product7_tag">Primeur</span></div>
+        <div class="card"><div class="card-icon">🥩</div><h3 data-i18n="product8_title">Viande & poisson</h3><p data-i18n="product8_desc">Bœuf, poulet, poisson frais et surgelé.</p><span class="card-tag" data-i18n="product8_tag">Frais</span></div>
       </div>
     </div>
   </section>
@@ -305,12 +266,12 @@
   <!-- CERTIFICATIONS -->
   <section class="reveal">
     <div class="container">
-      <h2 class="section-title">Nos <span>certifications</span></h2>
+      <h2 class="section-title"><span data-i18n="certs_our">Nos</span> <span data-i18n="certs_certifications">certifications</span></h2>
       <div class="cert-grid">
-        <div class="cert-item"><i class="fas fa-certificate"></i> Agriculture Biologique</div>
-        <div class="cert-item"><i class="fas fa-certificate"></i> Commerce Équitable</div>
-        <div class="cert-item"><i class="fas fa-certificate"></i> ISO 22000</div>
-        <div class="cert-item"><i class="fas fa-certificate"></i> HACCP</div>
+        <div class="cert-item"><i class="fas fa-certificate"></i> <span data-i18n="cert1">Agriculture Biologique</span></div>
+        <div class="cert-item"><i class="fas fa-certificate"></i> <span data-i18n="cert2">Commerce Équitable</span></div>
+        <div class="cert-item"><i class="fas fa-certificate"></i> <span data-i18n="cert3">ISO 22000</span></div>
+        <div class="cert-item"><i class="fas fa-certificate"></i> <span data-i18n="cert4">HACCP</span></div>
       </div>
     </div>
   </section>
@@ -318,12 +279,12 @@
   <!-- STATS -->
   <section id="stats" class="reveal">
     <div class="container">
-      <h2 class="section-title">Ils nous <span>font confiance</span></h2>
+      <h2 class="section-title"><span data-i18n="stats_they">Ils nous</span> <span data-i18n="stats_trust">font confiance</span></h2>
       <div class="stats-wrap">
-        <div class="stat-item"><div class="stat-number">+500</div><div class="stat-label">Clients</div></div>
-        <div class="stat-item"><div class="stat-number">+20 t</div><div class="stat-label">Livrées / an</div></div>
-        <div class="stat-item"><div class="stat-number">12</div><div class="stat-label">Partenaires</div></div>
-        <div class="stat-item"><div class="stat-number">5</div><div class="stat-label">Pays</div></div>
+        <div class="stat-item"><div class="stat-number">+500</div><div class="stat-label" data-i18n="stat_clients">Clients</div></div>
+        <div class="stat-item"><div class="stat-number">+20 t</div><div class="stat-label" data-i18n="stat_delivered">Livrées / an</div></div>
+        <div class="stat-item"><div class="stat-number">12</div><div class="stat-label" data-i18n="stat_partners">Partenaires</div></div>
+        <div class="stat-item"><div class="stat-number">5</div><div class="stat-label" data-i18n="stat_countries">Pays</div></div>
       </div>
     </div>
   </section>
@@ -331,7 +292,7 @@
   <!-- PARTENAIRES -->
   <section id="partners" class="partners-section reveal">
     <div class="container">
-      <h2 class="section-title">Nos <span>partenaires</span></h2>
+      <h2 class="section-title"><span data-i18n="partners_our">Nos</span> <span data-i18n="partners_partners">partenaires</span></h2>
       <div class="partners-slider">
         <div class="slider-track">
           <div class="partner-logo"><img src="images/partner1.png" alt=""></div>
@@ -352,12 +313,12 @@
   <!-- GALLERIE avec lightbox -->
   <section id="gallery" class="reveal">
     <div class="container">
-      <h2 class="section-title">Ici c’est <span>chez nous</span></h2>
+      <h2 class="section-title"><span data-i18n="gallery_here">Ici c’est</span> <span data-i18n="gallery_home">chez nous</span></h2>
       <div class="gallery-grid" id="galleryGrid">
-        <div class="gallery-item" data-src="images/mi1.jpeg"><img src="images/mi1.jpeg" alt="Production" loading="lazy"><span class="gallery-label">Production</span></div>
-        <div class="gallery-item" data-src="images/mi2.jpeg"><img src="images/mi2.jpeg" alt="Transformation" loading="lazy"><span class="gallery-label">Transformation</span></div>
-        <div class="gallery-item" data-src="images/mi3.jpeg"><img src="images/mi3.jpeg" alt="Élevage" loading="lazy"><span class="gallery-label">Élevage</span></div>
-        <div class="gallery-item" data-src="images/mi4.jpeg"><img src="images/mi4.jpeg" alt="Distribution" loading="lazy"><span class="gallery-label">Distribution</span></div>
+        <div class="gallery-item" data-src="images/mi1.jpeg"><img src="images/mi1.jpeg" alt="Production" loading="lazy" data-i18n-alt="gallery_prod"><span class="gallery-label" data-i18n="gallery_prod">Production</span></div>
+        <div class="gallery-item" data-src="images/mi2.jpeg"><img src="images/mi2.jpeg" alt="Transformation" loading="lazy" data-i18n-alt="gallery_transfo"><span class="gallery-label" data-i18n="gallery_transfo">Transformation</span></div>
+        <div class="gallery-item" data-src="images/mi3.jpeg"><img src="images/mi3.jpeg" alt="Élevage" loading="lazy" data-i18n-alt="gallery_livestock"><span class="gallery-label" data-i18n="gallery_livestock">Élevage</span></div>
+        <div class="gallery-item" data-src="images/mi4.jpeg"><img src="images/mi4.jpeg" alt="Distribution" loading="lazy" data-i18n-alt="gallery_distrib"><span class="gallery-label" data-i18n="gallery_distrib">Distribution</span></div>
       </div>
     </div>
   </section>
@@ -371,25 +332,25 @@
   <!-- TESTIMONIALS -->
   <section id="testimonials" class="reveal">
     <div class="container">
-      <h2 class="section-title">Ce qu'ils <span>disent</span></h2>
+      <h2 class="section-title"><span data-i18n="testimonials_what">Ce qu'ils</span> <span data-i18n="testimonials_say">disent</span></h2>
       <div class="testimonials-grid">
         <div class="testimonial-card">
           <img src="images/kje.jpeg" alt="" class="testimonial-img" loading="lazy">
           <div class="testimonial-name">Kouassi Jean</div>
-          <div class="testimonial-role">Producteur</div>
-          <p class="testimonial-text">"GRAND-D AGRO m'accompagne depuis 3 ans. Leurs conseils et la qualité des intrants ont transformé ma production."</p>
+          <div class="testimonial-role" data-i18n="testimonial1_role">Producteur</div>
+          <p class="testimonial-text" data-i18n="testimonial1_text">"GRAND-D AGRO m'accompagne depuis 3 ans. Leurs conseils et la qualité des intrants ont transformé ma production."</p>
         </div>
         <div class="testimonial-card">
           <img src="images/fd.jpeg" alt="" class="testimonial-img" loading="lazy">
           <div class="testimonial-name">Fatou Diallo</div>
-          <div class="testimonial-role">Distributrice</div>
-          <p class="testimonial-text">"Une fiabilité exemplaire. Les livraisons sont toujours à l'heure et les produits sont d'une fraîcheur incomparable."</p>
+          <div class="testimonial-role" data-i18n="testimonial2_role">Distributrice</div>
+          <p class="testimonial-text" data-i18n="testimonial2_text">"Une fiabilité exemplaire. Les livraisons sont toujours à l'heure et les produits sont d'une fraîcheur incomparable."</p>
         </div>
         <div class="testimonial-card">
           <img src="images/aht.jpeg" alt="" class="testimonial-img" loading="lazy">
           <div class="testimonial-name">Ahmed Traoré</div>
-          <div class="testimonial-role">Restaurateur</div>
-          <p class="testimonial-text">"Je travaille exclusivement avec eux pour mes approvisionnements. Mes clients apprécient la différence."</p>
+          <div class="testimonial-role" data-i18n="testimonial3_role">Restaurateur</div>
+          <p class="testimonial-text" data-i18n="testimonial3_text">"Je travaille exclusivement avec eux pour mes approvisionnements. Mes clients apprécient la différence."</p>
         </div>
       </div>
     </div>
@@ -398,70 +359,70 @@
   <!-- TEAM avec images cliquables (data-src ajouté) -->
   <section id="team" class="reveal">
     <div class="container">
-      <h2 class="section-title">Notre <span>équipe</span></h2>
+      <h2 class="section-title"><span data-i18n="team_our">Notre</span> <span data-i18n="team_team">équipe</span></h2>
       <div class="team-grid">
         <div class="team-card">
           <img src="images/fond.jpeg" alt="Diomandé Mohamed" loading="lazy" data-src="images/fond.jpeg">
           <div class="team-info">
             <h4>Diomandé Mohamed</h4>
-            <p>Fondateur & CEO</p>
+            <p data-i18n="team_founder">Fondateur & CEO</p>
           </div>
         </div>
         <div class="team-card">
           <img src="images/kai.jpeg" alt="Koffi Aimé" loading="lazy" data-src="images/kai.jpeg">
           <div class="team-info">
             <h4>Koffi Aimé</h4>
-            <p>Directeur des opérations</p>
+            <p data-i18n="team_operations">Directeur des opérations</p>
           </div>
         </div>
         <div class="team-card">
           <img src="images/fat.jpeg" alt="Diomandé Fatoumata" loading="lazy" data-src="images/fat.jpeg">
           <div class="team-info">
             <h4>Diomandé Fatoumata</h4>
-            <p>Responsable qualité</p>
+            <p data-i18n="team_quality">Responsable qualité</p>
           </div>
         </div>
         <div class="team-card">
           <img src="images/yao.jpeg" alt="Yao Frédéric" loading="lazy" data-src="images/yao.jpeg">
           <div class="team-info">
             <h4>Yao Frédéric</h4>
-            <p>Logistique & export</p>
+            <p data-i18n="team_logistics">Logistique & export</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- BLOG / ACTUALITÉS (première carte modifiée) -->
+  <!-- BLOG / ACTUALITÉS -->
   <section id="blog" class="reveal">
     <div class="container">
-      <h2 class="section-title">Dernières <span>actualités</span></h2>
+      <h2 class="section-title"><span data-i18n="blog_latest">Dernières</span> <span data-i18n="blog_news">actualités</span></h2>
       <div class="blog-grid">
         <div class="blog-card">
           <img src="images/kje.jpeg" alt="" loading="lazy">
           <div class="blog-content">
-            <div class="blog-date">🤲 Partenariats basés sur la confiance et le respect mutuel</div>
-            <div class="blog-title">📍 Recrutement gérant(e) point de vente crèmes glacées à Abidjan</div>
-            <p class="blog-excerpt">👨🏾‍🌾 Producteurs et coopératives bienvenus pour collaboration équitable</p>
-            <a href="#" style="color: var(--gold); font-weight: 600;">Lire plus →</a>
+            <div class="blog-date" data-i18n="blog1_date">🤲 Partenariats basés sur la confiance et le respect mutuel</div>
+            <div class="blog-title" data-i18n="blog1_title">📍 Recrutement gérant(e) point de vente crèmes glacées à Abidjan</div>
+            <p class="blog-excerpt" data-i18n="blog1_excerpt">👨🏾‍🌾 Producteurs et coopératives bienvenus pour collaboration équitable</p>
+            <a href="#" style="color: var(--gold); font-weight: 600;" data-i18n="blog_read">Lire plus →</a>
           </div>
         </div>
         <div class="blog-card">
           <img src="images/for.jpeg" alt="" loading="lazy">
           <div class="blog-content">
-            <div class="blog-date">5 mars 2026</div>
-            <div class="blog-title">Formation sur les techniques agricoles durables</div>
-            <p class="blog-excerpt">Une session de formation a réuni 50 agriculteurs la semaine dernière...</p>
-            <a href="#" style="color: var(--gold); font-weight: 600;">Lire plus →</a>
+            <div class="blog-date" data-i18n="blog2_date">5 mars 2026</div>
+            <div class="blog-title" data-i18n="blog2_title">Formation sur les techniques agricoles durables</div>
+            <p class="blog-excerpt" data-i18n="blog2_excerpt">Une session de formation a réuni 50 agriculteurs la semaine dernière...</p>
+            <a href="#" style="color: var(--gold); font-weight: 600;" data-i18n="blog_read">Lire plus →</a>
           </div>
         </div>
         <div class="blog-card">
           <img src="images/gha.jpeg" alt="" loading="lazy">
           <div class="blog-content">
-            <div class="blog-date">20 février 2026</div>
-            <div class="blog-title">Exportation record vers le Ghana</div>
-            <p class="blog-excerpt">Nos produits franchissent les frontières avec succès...</p>
-            <a href="#" style="color: var(--gold); font-weight: 600;">Lire plus →</a>
+            <div class="blog-date" data-i18n="blog3_date">20 février 2026</div>
+            <div class="blog-title" data-i18n="blog3_title">Exportation record vers le Ghana</div>
+            <p class="blog-excerpt" data-i18n="blog3_excerpt">Nos produits franchissent les frontières avec succès...</p>
+            <a href="#" style="color: var(--gold); font-weight: 600;" data-i18n="blog_read">Lire plus →</a>
           </div>
         </div>
       </div>
@@ -471,11 +432,11 @@
   <!-- NEWSLETTER -->
   <div class="container">
     <div class="newsletter-box">
-      <h3>Restez informé</h3>
-      <p>Recevez nos offres et actualités</p>
+      <h3 data-i18n="newsletter_title">Restez informé</h3>
+      <p data-i18n="newsletter_text">Recevez nos offres et actualités</p>
       <div class="newsletter-input">
-        <input type="email" placeholder="Votre adresse email" id="newsletterEmail">
-        <button class="btn btn-primary" id="newsletterBtn">S'inscrire</button>
+        <input type="email" placeholder="Votre adresse email" id="newsletterEmail" data-i18n-placeholder="newsletter_placeholder">
+        <button class="btn btn-primary" id="newsletterBtn" data-i18n="newsletter_btn">S'inscrire</button>
       </div>
     </div>
   </div>
@@ -484,40 +445,40 @@
   <div class="container">
     <div class="cta-strip">
       <div>
-        <h3>Prêt à collaborer ?</h3>
-        <p>Un devis personnalisé en 24h. Contactez directement notre équipe.</p>
+        <h3 data-i18n="cta_title">Prêt à collaborer ?</h3>
+        <p data-i18n="cta_text">Un devis personnalisé en 24h. Contactez directement notre équipe.</p>
       </div>
-      <a class="btn btn-primary" href="#contact">📩 Demander un devis</a>
+      <a class="btn btn-primary" href="#contact" data-i18n="cta_btn">📩 Demander un devis</a>
     </div>
   </div>
 
   <!-- CONTACT avec formulaire enrichi -->
   <section id="contact" class="reveal">
     <div class="container">
-      <h2 class="section-title">Échangeons <span>ensemble</span></h2>
+      <h2 class="section-title"><span data-i18n="contact_lets">Échangeons</span> <span data-i18n="contact_together">ensemble</span></h2>
       <div class="contact-grid">
         <form class="contact-form" id="contactForm">
-          <div class="input-group"><input type="text" id="name" placeholder="Nom & prénom" required></div>
-          <div class="input-group"><input type="email" id="email" placeholder="Adresse email" required></div>
-          <div class="input-group"><input type="tel" id="phone" placeholder="Téléphone"></div>
+          <div class="input-group"><input type="text" id="name" placeholder="Nom & prénom" required data-i18n-placeholder="contact_name"></div>
+          <div class="input-group"><input type="email" id="email" placeholder="Adresse email" required data-i18n-placeholder="contact_email"></div>
+          <div class="input-group"><input type="tel" id="phone" placeholder="Téléphone" data-i18n-placeholder="contact_phone"></div>
           <div class="input-group">
             <select id="requestType">
-              <option value="devis">Demande de devis</option>
-              <option value="info">Information</option>
-              <option value="partenariat">Partenariat</option>
-              <option value="autre">Autre</option>
+              <option value="devis" data-i18n="contact_option1">Demande de devis</option>
+              <option value="info" data-i18n="contact_option2">Information</option>
+              <option value="partenariat" data-i18n="contact_option3">Partenariat</option>
+              <option value="autre" data-i18n="contact_option4">Autre</option>
             </select>
           </div>
-          <div class="input-group"><input type="text" id="subject" placeholder="Objet" required></div>
-          <div class="input-group"><textarea id="message" rows="4" placeholder="Votre message..." required></textarea></div>
-          <button class="btn btn-primary" type="submit" style="width: 100%;"><i class="fab fa-whatsapp"></i> Envoyer sur WhatsApp</button>
+          <div class="input-group"><input type="text" id="subject" placeholder="Objet" required data-i18n-placeholder="contact_subject"></div>
+          <div class="input-group"><textarea id="message" rows="4" placeholder="Votre message..." required data-i18n-placeholder="contact_message"></textarea></div>
+          <button class="btn btn-primary" type="submit" style="width: 100%;"><i class="fab fa-whatsapp"></i> <span data-i18n="contact_send">Envoyer sur WhatsApp</span></button>
         </form>
         <div class="contact-info">
-          <h3>Coordonnées</h3>
-          <div class="contact-detail"><i class="fas fa-map-pin"></i> <span>Yopougon Petit Toit Rouge, Lot 15, Abidjan</span></div>
-          <div class="contact-detail"><i class="fas fa-phone-alt"></i> <a href="tel:+2250172513751">+225 01 72 51 37 51</a></div>
-          <div class="contact-detail"><i class="fas fa-envelope"></i> <a href="mailto:contactgranddagroservice@gmail.com">contactgranddagroservice@gmail.com</a></div>
-          <div class="contact-detail"><i class="fas fa-globe"></i> <span>Export Afrique</span></div>
+          <h3 data-i18n="contact_coords">Coordonnées</h3>
+          <div class="contact-detail"><i class="fas fa-map-pin"></i> <span translate="no">Yopougon Petit Toit Rouge, Lot 15, Abidjan</span></div>
+          <div class="contact-detail"><i class="fas fa-phone-alt"></i> <a href="tel:+2250172513751" translate="no">+225 01 72 51 37 51</a></div>
+          <div class="contact-detail"><i class="fas fa-envelope"></i> <a href="mailto:contactgranddagroservice@gmail.com" translate="no">contactgranddagroservice@gmail.com</a></div>
+          <div class="contact-detail"><i class="fas fa-globe"></i> <span data-i18n="contact_export">Export Afrique</span></div>
           <!-- Google Maps iframe -->
           <div class="map-container" style="margin-top: 1rem;">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.123456789!2d-4.012345!3d5.323456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcCsMTknMjQuNCJOIDTCsDAwJzQ0LjQiVw!5e0!3m2!1sfr!2sci!4v1234567890" width="100%" height="200" style="border:0; border-radius: 20px;" allowfullscreen="" loading="lazy"></iframe>
@@ -530,22 +491,22 @@
   <!-- FIL D'ACTUALITÉ BAS (avec vos annonces personnalisées) -->
   <div class="news-ticker bottom-ticker">
     <div class="container" style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-      <span class="ticker-header"><i class="fas fa-megaphone"></i> Annonces</span>
+      <span class="ticker-header"><i class="fas fa-megaphone"></i> <span data-i18n="ticker_announce">Annonces</span></span>
       <div class="news-ticker-container" style="flex: 1;">
         <div class="ticker-track">
-          <span class="ticker-item"><i class="fas fa-tag"></i> 📍 Recrutement gérant(e) point de vente crèmes glacées à Abidjan</span>
-          <span class="ticker-item"><i class="fas fa-handshake"></i> Recherche partenaires pour distribution</span>
-          <span class="ticker-item"><i class="fas fa-seedling"></i> Nouvelle variété d'aubergine disponible</span>
-          <span class="ticker-item"><i class="fas fa-truck"></i> Livraison express vers toutes les régions</span>
-          <span class="ticker-item"><i class="fas fa-apple-alt"></i> Salade, chou, tomate à prix promo</span>
-          <span class="ticker-item"><i class="fas fa-fish"></i> Poisson fumé en stock</span>
+          <span class="ticker-item"><i class="fas fa-tag"></i> <span data-i18n="tickerb1">📍 Recrutement gérant(e) point de vente crèmes glacées à Abidjan</span></span>
+          <span class="ticker-item"><i class="fas fa-handshake"></i> <span data-i18n="tickerb2">Recherche partenaires pour distribution</span></span>
+          <span class="ticker-item"><i class="fas fa-seedling"></i> <span data-i18n="tickerb3">Nouvelle variété d'aubergine disponible</span></span>
+          <span class="ticker-item"><i class="fas fa-truck"></i> <span data-i18n="tickerb4">Livraison express vers toutes les régions</span></span>
+          <span class="ticker-item"><i class="fas fa-apple-alt"></i> <span data-i18n="tickerb5">Salade, chou, tomate à prix promo</span></span>
+          <span class="ticker-item"><i class="fas fa-fish"></i> <span data-i18n="tickerb6">Poisson fumé en stock</span></span>
           <!-- Doublon pour continuité -->
-          <span class="ticker-item"><i class="fas fa-tag"></i> 📍 Recrutement gérant(e) point de vente crèmes glacées à Abidjan</span>
-          <span class="ticker-item"><i class="fas fa-handshake"></i> Recherche partenaires pour distribution</span>
-          <span class="ticker-item"><i class="fas fa-seedling"></i> Nouvelle variété d'aubergine disponible</span>
-          <span class="ticker-item"><i class="fas fa-truck"></i> Livraison express vers toutes les régions</span>
-          <span class="ticker-item"><i class="fas fa-apple-alt"></i> Salade, chou, tomate à prix promo</span>
-          <span class="ticker-item"><i class="fas fa-fish"></i> Poisson fumé en stock</span>
+          <span class="ticker-item"><i class="fas fa-tag"></i> <span data-i18n="tickerb1">📍 Recrutement gérant(e) point de vente crèmes glacées à Abidjan</span></span>
+          <span class="ticker-item"><i class="fas fa-handshake"></i> <span data-i18n="tickerb2">Recherche partenaires pour distribution</span></span>
+          <span class="ticker-item"><i class="fas fa-seedling"></i> <span data-i18n="tickerb3">Nouvelle variété d'aubergine disponible</span></span>
+          <span class="ticker-item"><i class="fas fa-truck"></i> <span data-i18n="tickerb4">Livraison express vers toutes les régions</span></span>
+          <span class="ticker-item"><i class="fas fa-apple-alt"></i> <span data-i18n="tickerb5">Salade, chou, tomate à prix promo</span></span>
+          <span class="ticker-item"><i class="fas fa-fish"></i> <span data-i18n="tickerb6">Poisson fumé en stock</span></span>
         </div>
       </div>
     </div>
@@ -557,7 +518,7 @@
       <div>
         <p>&copy; 2026 GRAND-D AGRO SERVICE | SARL | Capital : 1 000 000 F CFA | RCS Abidjan</p>
         <p class="footer-links">
-          <a href="#">Mentions légales</a> | <a href="#">Politique de confidentialité</a>
+          <a href="#" data-i18n="footer_legal">Mentions légales</a> | <a href="#" data-i18n="footer_privacy">Politique de confidentialité</a>
         </p>
       </div>
       <div class="footer-social">
@@ -572,7 +533,524 @@
   <a class="whatsapp-float" href="https://wa.me/2250172513751" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
   <div class="back-top" id="backTop"><i class="fas fa-arrow-up"></i></div>
 
-  <!-- Script principal -->
-  <script src="script.js"></script>
+  <!-- Script principal intégré (plus besoin de fichier externe) -->
+  <script>
+    // Traductions
+    const translations = {
+      fr: {
+        nav_home: "Accueil",
+        nav_about: "À propos",
+        nav_services: "Services",
+        nav_products: "Produits",
+        nav_contact: "Contact",
+        nav_more: "Plus <i class='fas fa-chevron-down'></i>",
+        nav_founder: "Fondateur",
+        nav_vision: "Notre vision",
+        nav_stats: "Chiffres",
+        nav_partners: "Partenaires",
+        nav_gallery: "Galerie",
+        nav_testimonials: "Témoignages",
+        nav_team: "Équipe",
+        nav_blog: "Blog",
+        nav_quote: "Devis",
+        mobile_quote: "📩 Demander un devis",
+        ticker_flash: "Flash info",
+        ticker1: "Nouveau : distribution de viande et poisson",
+        ticker2: "Partenariat avec une coopérative de maraîchers",
+        ticker3: "Promotion semences de tomate -30%",
+        ticker4: "Livraison gratuite à partir de 50kg",
+        ticker5: "Arrivage salade, chou, tomate bio",
+        ticker6: "Poisson frais tous les jeudis",
+        hero_highlight: "L'agriculture",
+        hero_sub: "nouvelle génération",
+        hero_text: "GRAND‑D AGRO SERVICE : production responsable, transformation moderne et distribution panafricaine.",
+        hero_btn_explore: "Explorer nos métiers",
+        hero_why_title: "Pourquoi nous ?",
+        hero_why1: "Qualité supérieure & traçabilité",
+        hero_why2: "Livraison express & service client",
+        hero_why3: "Exportation vers 5+ pays",
+        hero_why4: "Conseil & accompagnement",
+        about_who: "Qui",
+        about_are_we: "sommes‑nous",
+        about_text: "Société ivoirienne basée à Yopougon, nous conjuguons tradition agricole et technologies modernes. De la production à la commercialisation, nous garantissons des produits sains et une traçabilité exemplaire. Notre mission : valoriser le terroir et nourrir l'Afrique.",
+        founder_name: "Diomandé Mohamed",
+        founder_text1: "Fondateur de GRAND‑D AGRO SERVICE, il grandit dans les champs familiaux. Confronté aux difficultés de commercialisation, il décide de bâtir une structure capable d’offrir des débouchés justes aux producteurs.",
+        founder_text2: "Diplômé et visionnaire, il place l'humain et l'innovation au cœur de l'entreprise.",
+        founder_quote: "« Une agriculture forte, c’est un peuple fort. »",
+        global_our: "Notre",
+        global_vision: "vision en action",
+        global_subhead: "Toutes nos activités réunies dans une seule image",
+        global_caption: "De la production à la distribution, en passant par l'élevage et les services – une approche intégrée.",
+        services_our: "Nos",
+        services_services: "services",
+        services_subhead: "Des prestations intégrées pour une agriculture performante",
+        service1_title: "Production agricole",
+        service1_desc: "Culture raisonnée de fruits, légumes et céréales.",
+        service1_tag: "Qualité",
+        service2_title: "Élevage",
+        service2_desc: "Bovins, ovins et volailles en circuit respectueux.",
+        service2_tag: "Bien-être animal",
+        service3_title: "Transformation",
+        service3_desc: "Produits laitiers, crèmes glacées et conditionnement.",
+        service3_tag: "Savoir-faire",
+        service4_title: "Distribution",
+        service4_desc: "Livraison nationale et export vers l'Afrique.",
+        service4_tag: "Rapide",
+        service5_title: "Intrants",
+        service5_desc: "Semences, engrais et matériel agricole.",
+        service5_tag: "Pro",
+        service6_title: "Logistique",
+        service6_desc: "Transport, stockage et conseil.",
+        service6_tag: "Sur mesure",
+        service7_title: "Immobilier",
+        service7_desc: "Achat, vente, gestion de biens.",
+        service7_tag: "Accompagnement",
+        service8_title: "Cours à domicile",
+        service8_desc: "Soutien scolaire et préparation aux examens.",
+        service8_tag: "Pédagogie",
+        products_our: "Nos",
+        products_products: "produits",
+        products_subhead: "Des produits de qualité, issus de nos exploitations",
+        products_search: "Rechercher un produit...",
+        product1_title: "Maïs bio",
+        product1_desc: "Maïs blanc et jaune, cultivé sans pesticides.",
+        product1_tag: "Certifié",
+        product2_title: "Manioc",
+        product2_desc: "Racines fraîches ou transformées en attiéké.",
+        product2_tag: "Tradition",
+        product3_title: "Lait frais",
+        product3_desc: "Lait de vache pasteurisé, riche en saveur.",
+        product3_tag: "Frais",
+        product4_title: "Crèmes glacées",
+        product4_desc: "Desserts lactés artisanaux.",
+        product4_tag: "Gourmand",
+        product5_title: "Semences",
+        product5_desc: "Semences améliorées de maïs, tomate, etc.",
+        product5_tag: "Haute qualité",
+        product6_title: "Engrais bio",
+        product6_desc: "Fertilisants naturels pour vos cultures.",
+        product6_tag: "Eco",
+        product7_title: "Légumes frais",
+        product7_desc: "Salade, chou, tomate, aubergine, gombo et plus.",
+        product7_tag: "Primeur",
+        product8_title: "Viande & poisson",
+        product8_desc: "Bœuf, poulet, poisson frais et surgelé.",
+        product8_tag: "Frais",
+        certs_our: "Nos",
+        certs_certifications: "certifications",
+        cert1: "Agriculture Biologique",
+        cert2: "Commerce Équitable",
+        cert3: "ISO 22000",
+        cert4: "HACCP",
+        stats_they: "Ils nous",
+        stats_trust: "font confiance",
+        stat_clients: "Clients",
+        stat_delivered: "Livrées / an",
+        stat_partners: "Partenaires",
+        stat_countries: "Pays",
+        partners_our: "Nos",
+        partners_partners: "partenaires",
+        gallery_here: "Ici c’est",
+        gallery_home: "chez nous",
+        gallery_prod: "Production",
+        gallery_transfo: "Transformation",
+        gallery_livestock: "Élevage",
+        gallery_distrib: "Distribution",
+        testimonials_what: "Ce qu'ils",
+        testimonials_say: "disent",
+        testimonial1_role: "Producteur",
+        testimonial1_text: "\"GRAND-D AGRO m'accompagne depuis 3 ans. Leurs conseils et la qualité des intrants ont transformé ma production.\"",
+        testimonial2_role: "Distributrice",
+        testimonial2_text: "\"Une fiabilité exemplaire. Les livraisons sont toujours à l'heure et les produits sont d'une fraîcheur incomparable.\"",
+        testimonial3_role: "Restaurateur",
+        testimonial3_text: "\"Je travaille exclusivement avec eux pour mes approvisionnements. Mes clients apprécient la différence.\"",
+        team_our: "Notre",
+        team_team: "équipe",
+        team_founder: "Fondateur & CEO",
+        team_operations: "Directeur des opérations",
+        team_quality: "Responsable qualité",
+        team_logistics: "Logistique & export",
+        blog_latest: "Dernières",
+        blog_news: "actualités",
+        blog1_date: "🤲 Partenariats basés sur la confiance et le respect mutuel",
+        blog1_title: "📍 Recrutement gérant(e) point de vente crèmes glacées à Abidjan",
+        blog1_excerpt: "👨🏾‍🌾 Producteurs et coopératives bienvenus pour collaboration équitable",
+        blog2_date: "5 mars 2026",
+        blog2_title: "Formation sur les techniques agricoles durables",
+        blog2_excerpt: "Une session de formation a réuni 50 agriculteurs la semaine dernière...",
+        blog3_date: "20 février 2026",
+        blog3_title: "Exportation record vers le Ghana",
+        blog3_excerpt: "Nos produits franchissent les frontières avec succès...",
+        blog_read: "Lire plus →",
+        newsletter_title: "Restez informé",
+        newsletter_text: "Recevez nos offres et actualités",
+        newsletter_placeholder: "Votre adresse email",
+        newsletter_btn: "S'inscrire",
+        newsletter_error_empty: "Veuillez entrer votre adresse email.",
+        newsletter_error_invalid: "Adresse email invalide.",
+        newsletter_sent: "Merci ! Votre inscription a été transmise.",
+        cta_title: "Prêt à collaborer ?",
+        cta_text: "Un devis personnalisé en 24h. Contactez directement notre équipe.",
+        cta_btn: "📩 Demander un devis",
+        contact_lets: "Échangeons",
+        contact_together: "ensemble",
+        contact_name: "Nom & prénom",
+        contact_email: "Adresse email",
+        contact_phone: "Téléphone",
+        contact_option1: "Demande de devis",
+        contact_option2: "Information",
+        contact_option3: "Partenariat",
+        contact_option4: "Autre",
+        contact_subject: "Objet",
+        contact_message: "Votre message...",
+        contact_send: "Envoyer sur WhatsApp",
+        contact_coords: "Coordonnées",
+        contact_export: "Export Afrique",
+        ticker_announce: "Annonces",
+        tickerb1: "📍 Recrutement gérant(e) point de vente crèmes glacées à Abidjan",
+        tickerb2: "Recherche partenaires pour distribution",
+        tickerb3: "Nouvelle variété d'aubergine disponible",
+        tickerb4: "Livraison express vers toutes les régions",
+        tickerb5: "Salade, chou, tomate à prix promo",
+        tickerb6: "Poisson fumé en stock",
+        footer_legal: "Mentions légales",
+        footer_privacy: "Politique de confidentialité",
+        hero_image_alt: "Champs agricoles",
+        global_image_alt: "Aperçu global des activités",
+      },
+      en: {
+        nav_home: "Home",
+        nav_about: "About",
+        nav_services: "Services",
+        nav_products: "Products",
+        nav_contact: "Contact",
+        nav_more: "More <i class='fas fa-chevron-down'></i>",
+        nav_founder: "Founder",
+        nav_vision: "Our vision",
+        nav_stats: "Stats",
+        nav_partners: "Partners",
+        nav_gallery: "Gallery",
+        nav_testimonials: "Testimonials",
+        nav_team: "Team",
+        nav_blog: "Blog",
+        nav_quote: "Quote",
+        mobile_quote: "📩 Request a quote",
+        ticker_flash: "Flash info",
+        ticker1: "New: meat and fish distribution",
+        ticker2: "Partnership with a vegetable growers cooperative",
+        ticker3: "Promotion tomato seeds -30%",
+        ticker4: "Free delivery from 50kg",
+        ticker5: "New arrival of salad, cabbage, organic tomato",
+        ticker6: "Fresh fish every Thursday",
+        hero_highlight: "Agriculture",
+        hero_sub: "new generation",
+        hero_text: "GRAND‑D AGRO SERVICE: responsible production, modern processing and pan-African distribution.",
+        hero_btn_explore: "Explore our services",
+        hero_why_title: "Why us?",
+        hero_why1: "Superior quality & traceability",
+        hero_why2: "Express delivery & customer service",
+        hero_why3: "Export to 5+ countries",
+        hero_why4: "Advice & support",
+        about_who: "Who",
+        about_are_we: "are we",
+        about_text: "Ivorian company based in Yopougon, we combine agricultural tradition and modern technologies. From production to marketing, we guarantee healthy products and exemplary traceability. Our mission: to promote the terroir and feed Africa.",
+        founder_name: "Diomandé Mohamed",
+        founder_text1: "Founder of GRAND‑D AGRO SERVICE, he grew up in the family fields. Faced with marketing difficulties, he decided to build a structure capable of offering fair outlets to producers.",
+        founder_text2: "Graduate and visionary, he places people and innovation at the heart of the company.",
+        founder_quote: "“A strong agriculture means a strong people.”",
+        global_our: "Our",
+        global_vision: "vision in action",
+        global_subhead: "All our activities in one image",
+        global_caption: "From production to distribution, including livestock and services – an integrated approach.",
+        services_our: "Our",
+        services_services: "services",
+        services_subhead: "Integrated services for efficient agriculture",
+        service1_title: "Agricultural production",
+        service1_desc: "Responsible cultivation of fruits, vegetables and cereals.",
+        service1_tag: "Quality",
+        service2_title: "Livestock",
+        service2_desc: "Cattle, sheep and poultry in respectful farming.",
+        service2_tag: "Animal welfare",
+        service3_title: "Processing",
+        service3_desc: "Dairy products, ice creams and packaging.",
+        service3_tag: "Know-how",
+        service4_title: "Distribution",
+        service4_desc: "National delivery and export to Africa.",
+        service4_tag: "Fast",
+        service5_title: "Inputs",
+        service5_desc: "Seeds, fertilizers and agricultural equipment.",
+        service5_tag: "Pro",
+        service6_title: "Logistics",
+        service6_desc: "Transport, storage and advice.",
+        service6_tag: "Tailored",
+        service7_title: "Real estate",
+        service7_desc: "Purchase, sale, property management.",
+        service7_tag: "Support",
+        service8_title: "Home tutoring",
+        service8_desc: "Academic support and exam preparation.",
+        service8_tag: "Pedagogy",
+        products_our: "Our",
+        products_products: "products",
+        products_subhead: "Quality products from our farms",
+        products_search: "Search for a product...",
+        product1_title: "Organic corn",
+        product1_desc: "White and yellow corn, grown without pesticides.",
+        product1_tag: "Certified",
+        product2_title: "Cassava",
+        product2_desc: "Fresh roots or processed into attiéké.",
+        product2_tag: "Tradition",
+        product3_title: "Fresh milk",
+        product3_desc: "Pasteurized cow's milk, rich in flavor.",
+        product3_tag: "Fresh",
+        product4_title: "Ice creams",
+        product4_desc: "Artisanal dairy desserts.",
+        product4_tag: "Delicious",
+        product5_title: "Seeds",
+        product5_desc: "Improved seeds for corn, tomato, etc.",
+        product5_tag: "High quality",
+        product6_title: "Organic fertilizer",
+        product6_desc: "Natural fertilizers for your crops.",
+        product6_tag: "Eco",
+        product7_title: "Fresh vegetables",
+        product7_desc: "Lettuce, cabbage, tomato, eggplant, okra and more.",
+        product7_tag: "Fresh",
+        product8_title: "Meat & fish",
+        product8_desc: "Beef, chicken, fresh and frozen fish.",
+        product8_tag: "Fresh",
+        certs_our: "Our",
+        certs_certifications: "certifications",
+        cert1: "Organic Farming",
+        cert2: "Fair Trade",
+        cert3: "ISO 22000",
+        cert4: "HACCP",
+        stats_they: "They",
+        stats_trust: "trust us",
+        stat_clients: "Clients",
+        stat_delivered: "Delivered / year",
+        stat_partners: "Partners",
+        stat_countries: "Countries",
+        partners_our: "Our",
+        partners_partners: "partners",
+        gallery_here: "This is",
+        gallery_home: "our home",
+        gallery_prod: "Production",
+        gallery_transfo: "Processing",
+        gallery_livestock: "Livestock",
+        gallery_distrib: "Distribution",
+        testimonials_what: "What they",
+        testimonials_say: "say",
+        testimonial1_role: "Producer",
+        testimonial1_text: "\"GRAND-D AGRO has supported me for 3 years. Their advice and the quality of inputs have transformed my production.\"",
+        testimonial2_role: "Distributor",
+        testimonial2_text: "\"Exemplary reliability. Deliveries are always on time and the products are incomparably fresh.\"",
+        testimonial3_role: "Restaurateur",
+        testimonial3_text: "\"I work exclusively with them for my supplies. My customers appreciate the difference.\"",
+        team_our: "Our",
+        team_team: "team",
+        team_founder: "Founder & CEO",
+        team_operations: "Operations Director",
+        team_quality: "Quality Manager",
+        team_logistics: "Logistics & Export",
+        blog_latest: "Latest",
+        blog_news: "news",
+        blog1_date: "🤲 Partnerships based on trust and mutual respect",
+        blog1_title: "📍 Hiring manager for ice cream outlet in Abidjan",
+        blog1_excerpt: "👨🏾‍🌾 Producers and cooperatives welcome for fair collaboration",
+        blog2_date: "March 5, 2026",
+        blog2_title: "Training on sustainable agricultural techniques",
+        blog2_excerpt: "A training session brought together 50 farmers last week...",
+        blog3_date: "February 20, 2026",
+        blog3_title: "Record export to Ghana",
+        blog3_excerpt: "Our products are successfully crossing borders...",
+        blog_read: "Read more →",
+        newsletter_title: "Stay informed",
+        newsletter_text: "Receive our offers and news",
+        newsletter_placeholder: "Your email address",
+        newsletter_btn: "Subscribe",
+        newsletter_error_empty: "Please enter your email address.",
+        newsletter_error_invalid: "Invalid email address.",
+        newsletter_sent: "Thank you! Your subscription has been sent.",
+        cta_title: "Ready to collaborate?",
+        cta_text: "A personalized quote within 24h. Contact our team directly.",
+        cta_btn: "📩 Request a quote",
+        contact_lets: "Let's",
+        contact_together: "talk",
+        contact_name: "Full name",
+        contact_email: "Email address",
+        contact_phone: "Phone",
+        contact_option1: "Quote request",
+        contact_option2: "Information",
+        contact_option3: "Partnership",
+        contact_option4: "Other",
+        contact_subject: "Subject",
+        contact_message: "Your message...",
+        contact_send: "Send via WhatsApp",
+        contact_coords: "Contact details",
+        contact_export: "Export to Africa",
+        ticker_announce: "Announcements",
+        tickerb1: "📍 Hiring manager for ice cream outlet in Abidjan",
+        tickerb2: "Looking for distribution partners",
+        tickerb3: "New eggplant variety available",
+        tickerb4: "Express delivery to all regions",
+        tickerb5: "Lettuce, cabbage, tomato at promo price",
+        tickerb6: "Smoked fish in stock",
+        footer_legal: "Legal notices",
+        footer_privacy: "Privacy policy",
+        hero_image_alt: "Agricultural fields",
+        global_image_alt: "Global overview of activities",
+      }
+    };
+
+    // Fonction pour changer la langue
+    function setLanguage(lang) {
+      document.documentElement.lang = lang;
+      let metaLang = document.querySelector('meta[http-equiv="Content-Language"]');
+      if (metaLang) metaLang.setAttribute('content', lang);
+      
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          if (el.tagName === 'OPTION') {
+            el.textContent = translations[lang][key];
+          } else {
+            el.innerHTML = translations[lang][key];
+          }
+        }
+      });
+
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (translations[lang] && translations[lang][key]) {
+          el.placeholder = translations[lang][key];
+        }
+      });
+
+      document.querySelectorAll('[data-i18n-alt]').forEach(el => {
+        const key = el.getAttribute('data-i18n-alt');
+        if (translations[lang] && translations[lang][key]) {
+          el.alt = translations[lang][key];
+        }
+      });
+
+      document.querySelectorAll('.lang-option').forEach(btn => {
+        if (btn.dataset.lang === lang) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+    }
+
+    // Initialisation : français par défaut
+    setLanguage('fr');
+
+    // Ajouter les écouteurs sur les boutons de langue
+    document.querySelectorAll('.lang-option').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        setLanguage(this.dataset.lang);
+      });
+    });
+
+    // Menu mobile
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    menuBtn.addEventListener('click', () => {
+      mobileNav.style.display = mobileNav.style.display === 'block' ? 'none' : 'block';
+    });
+    document.querySelectorAll('.mobile-nav a').forEach(link => {
+      link.addEventListener('click', () => { mobileNav.style.display = 'none'; });
+    });
+
+    // Formulaire WhatsApp enrichi
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const requestType = document.getElementById('requestType').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+      const phoneNumber = '2250172513751';
+      const text = `Bonjour GRAND‑D AGRO SERVICE,%0A%0ANom: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0ATéléphone: ${encodeURIComponent(phone)}%0AType: ${encodeURIComponent(requestType)}%0AObjet: ${encodeURIComponent(subject)}%0A%0AMessage:%0A${encodeURIComponent(message)}`;
+      window.open(`https://wa.me/${phoneNumber}?text=${text}`, '_blank');
+    });
+
+    // Newsletter vers WhatsApp
+    document.getElementById('newsletterBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('newsletterEmail').value.trim();
+      const currentLang = document.documentElement.lang || 'fr';
+      const phoneNumber = '2250172513751';
+
+      if (email === '') {
+        alert(translations[currentLang].newsletter_error_empty);
+        return;
+      }
+
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!re.test(email)) {
+        alert(translations[currentLang].newsletter_error_invalid);
+        return;
+      }
+
+      const message = `Nouvelle inscription newsletter : ${email}`;
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+      window.open(whatsappUrl, '_blank');
+      document.getElementById('newsletterEmail').value = '';
+      alert(translations[currentLang].newsletter_sent);
+    });
+
+    // Lightbox
+    const modal = document.getElementById('lightboxModal');
+    const modalImg = document.getElementById('lightboxImage');
+    const closeBtn = document.querySelector('.lightbox-close');
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.addEventListener('click', () => {
+        modal.style.display = 'flex';
+        modalImg.src = item.dataset.src;
+      });
+    });
+    closeBtn.addEventListener('click', () => modal.style.display = 'none');
+    modal.addEventListener('click', (e) => {
+      if(e.target === modal) modal.style.display = 'none';
+    });
+
+    // Filtre produits
+    document.getElementById('productSearch').addEventListener('input', function(e) {
+      const search = e.target.value.toLowerCase();
+      document.querySelectorAll('#productsGrid .card').forEach(card => {
+        const title = card.querySelector('h3').innerText.toLowerCase();
+        const desc = card.querySelector('p').innerText.toLowerCase();
+        if(title.includes(search) || desc.includes(search)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    function checkReveal() {
+      reveals.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        const winH = window.innerHeight;
+        if (top < winH - 120) el.classList.add('show');
+      });
+    }
+    window.addEventListener('scroll', checkReveal);
+    checkReveal();
+
+    // Back to top
+    const backTop = document.getElementById('backTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 500) backTop.classList.add('show');
+      else backTop.classList.remove('show');
+    });
+    backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
 </body>
 </html>
