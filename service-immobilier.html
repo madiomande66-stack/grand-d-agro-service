@@ -6,55 +6,680 @@
   <title>Immobilier - GRAND‑D AGRO SERVICE</title>
   <meta name="description" content="Achat, vente, gestion de biens immobiliers. Accompagnement personnalisé.">
 
+  <!-- Google Fonts : Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ===== VARIABLES & RESET ===== */
+    :root {
+      --green: #2e7d32;
+      --green-light: #e8f5e9;
+      --gold: #ffb300;
+      --text-dark: #1f2937;
+      --text-soft: #4b5563;
+      --bg-light: #f9fafb;
+      --shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.02);
+      --shadow-hover: 0 20px 30px -10px rgba(0,0,0,0.15);
+      --transition: all 0.3s ease;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text-dark);
+      background: white;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; height: auto; display: block; }
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.8rem;
+      border-radius: 40px;
+      font-weight: 600;
+      transition: var(--transition);
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+    .btn-primary {
+      background: var(--green);
+      color: white;
+    }
+    .btn-primary:hover {
+      background: #1f5a23;
+      transform: scale(1.05);
+      box-shadow: var(--shadow-hover);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--green);
+      color: var(--green);
+    }
+    .btn-outline:hover {
+      background: var(--green);
+      color: white;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: white;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.04);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 2rem;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .brand img {
+      width: 70px;
+      border-radius: 12px;
+      transition: var(--transition);
+    }
+    .brand img:hover { transform: scale(1.05); }
+    .title {
+      display: flex;
+      flex-direction: column;
+    }
+    .title strong {
+      font-size: 1.4rem;
+      color: var(--green);
+      line-height: 1.2;
+    }
+    .title span {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      letter-spacing: 0.3px;
+    }
+
+    /* Lang switcher */
+    .lang-switcher {
+      display: flex;
+      gap: 0.5rem;
+      background: var(--green-light);
+      padding: 0.4rem 0.8rem;
+      border-radius: 40px;
+      font-weight: 600;
+    }
+    .lang-switcher span {
+      cursor: pointer;
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+      transition: var(--transition);
+    }
+    .lang-switcher span.active {
+      background: var(--green);
+      color: white;
+    }
+    .menu-btn { display: none; background: none; border: none; font-size: 2rem; cursor: pointer; }
+    nav { display: flex; align-items: center; gap: 1.5rem; }
+    nav a { font-weight: 500; transition: var(--transition); border-bottom: 2px solid transparent; }
+    nav a:hover { color: var(--green); border-bottom-color: var(--green); }
+    .dropdown { position: relative; }
+    .dropdown span { cursor: pointer; font-weight: 500; display: flex; align-items: center; gap: 0.3rem; }
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      box-shadow: var(--shadow);
+      border-radius: 20px;
+      padding: 1rem;
+      display: none;
+      flex-direction: column;
+      gap: 0.5rem;
+      min-width: 200px;
+      z-index: 100;
+    }
+    .dropdown:hover .dropdown-menu { display: flex; }
+    .dropdown-menu a { padding: 0.4rem 1rem; border-radius: 30px; }
+    .dropdown-menu a:hover { background: var(--green-light); }
+
+    /* Mobile nav */
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: white;
+      padding: 1.5rem;
+      gap: 1rem;
+      border-top: 1px solid #eee;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .mobile-nav.show { max-height: 600px; }
+    .mobile-cta { margin-top: 1rem; }
+
+    /* ===== NEWS TICKER ===== */
+    .news-ticker {
+      background: var(--green);
+      color: white;
+      padding: 0.6rem 0;
+      overflow: hidden;
+    }
+    .news-ticker-container {
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+    }
+    .ticker-track {
+      display: inline-block;
+      animation: ticker 30s linear infinite;
+    }
+    .ticker-track:hover { animation-play-state: paused; }
+    .ticker-item {
+      display: inline-block;
+      padding: 0 1.5rem;
+      font-size: 0.95rem;
+    }
+    .ticker-item i { margin-right: 0.4rem; color: var(--gold); }
+    .ticker-header {
+      background: rgba(255,255,255,0.2);
+      padding: 0.3rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .bottom-ticker { background: var(--gold); color: var(--text-dark); }
+
+    /* ===== SERVICE DETAIL ===== */
+    .service-detail { padding: 4rem 0; background: var(--bg-light); }
+    .service-header { margin-bottom: 3rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+    .service-icon {
+      font-size: 5rem;
+      background: var(--green-light);
+      padding: 2rem;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .service-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2.5rem;
+    }
+    .info-card {
+      background: var(--green-light);
+      padding: 2rem;
+      border-radius: 40px;
+      box-shadow: var(--shadow);
+    }
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 1rem;
+    }
+    .feature-list li {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .feature-list i {
+      color: var(--gold);
+      width: 1.8rem;
+      text-align: center;
+      font-size: 1.2rem;
+    }
+    .testimonial-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      margin-top: 2rem;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--text-dark);
+      color: white;
+      padding: 2rem 0;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-social { display: flex; gap: 1rem; }
+    .footer-social a {
+      background: rgba(255,255,255,0.1);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+    .footer-social a:hover { background: var(--green); transform: translateY(-3px); }
+
+    /* ===== FLOATING BUTTONS ===== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #25d366;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      box-shadow: var(--shadow-hover);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      z-index: 999;
+      transition: var(--transition);
+    }
+    .whatsapp-float:hover { background: #128C7E; transform: scale(1.05); }
+    .back-top {
+      position: fixed;
+      bottom: 2rem;
+      left: 2rem;
+      background: var(--gold);
+      color: var(--text-dark);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      z-index: 999;
+    }
+    .back-top:hover { background: var(--green); color: white; transform: translateY(-5px); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      nav { display: none; }
+      .menu-btn { display: block; }
+      .lang-switcher { margin-left: auto; }
+      .service-content { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .footer-inner { flex-direction: column; text-align: center; }
+      .brand .title strong { font-size: 1rem; }
+      .brand img { width: 50px; }
+      .service-header { flex-direction: column; text-align: center; }
+    }
+  </style>
 </head>
 <body>
-  <header>…</header>
-  <div class="news-ticker top-ticker">…</div>
 
-  <section class="service-detail" style="padding: 4rem 0;">
-    <div class="container">
-      <a href="index.html#services" class="btn btn-outline" style="margin-bottom: 2rem;"><i class="fas fa-arrow-left"></i> Retour aux services</a>
-      
-      <div class="service-header" style="display: flex; align-items: center; gap: 2rem; margin-bottom: 3rem; flex-wrap: wrap;">
-        <div class="service-icon" style="font-size: 5rem; background: var(--green-light); padding: 2rem; border-radius: 50%;">🏠</div>
-        <div>
-          <h1 style="color: var(--green);">Immobilier</h1>
-          <p style="font-size: 1.2rem; color: var(--text-soft); max-width: 700px;">Achat, vente, gestion de biens immobiliers. Accompagnement personnalisé.</p>
+  <!-- HEADER -->
+  <header>
+    <div class="container header-inner">
+      <div class="brand">
+        <a href="index.html"><img src="images/logo1.jpeg" alt="GRAND-D AGRO SERVICE" loading="lazy"></a>
+        <div class="title">
+          <strong>GRAND‑D AGRO</strong>
+          <span>Production · Transformation · Distribution</span>
         </div>
       </div>
 
-      <div class="service-content" style="display: grid; grid-template-columns: 2fr 1fr; gap: 2.5rem;">
-        <div>
-          <h2>Votre partenaire immobilier de confiance</h2>
-          <p>GRAND‑D AGRO SERVICE étend son expertise au secteur immobilier. Nous vous accompagnons dans vos projets d'achat, de vente ou de location de biens résidentiels, commerciaux ou agricoles. Nous proposons également des prestations de gestion locative et de conseil en investissement.</p>
-          <p>Notre connaissance du terrain et notre réseau de partenaires nous permettent de vous offrir des opportunités adaptées à vos besoins, en toute transparence.</p>
-        </div>
-        <div>
-          <div style="background: var(--green-light); padding: 2rem; border-radius: 40px;">
-            <span class="card-tag" style="font-size: 1rem;">Accompagnement</span>
-            <h3 style="color: var(--green); margin-top: 1.5rem;">Informations clés</h3>
-            <ul style="list-style: none; padding: 0;">
-              <li><i class="fas fa-home" style="color: var(--gold);"></i> Résidentiel, commercial, agricole</li>
-              <li><i class="fas fa-handshake" style="color: var(--gold);"></i> Transactions sécurisées</li>
-              <li><i class="fas fa-file-signature" style="color: var(--gold);"></i> Gestion locative</li>
-              <li><i class="fas fa-chart-pie" style="color: var(--gold);"></i> Conseil en investissement</li>
-            </ul>
-            <a href="https://wa.me/2250172513751?text=Bonjour%2C%20je%20souhaite%20un%20devis%20pour%20l'immobilier." target="_blank" class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;"><i class="fab fa-whatsapp"></i> Demander un devis</a>
+      <div class="lang-switcher" id="langSwitcher">
+        <span class="active" data-lang="fr">FR</span>
+        <span data-lang="en">EN</span>
+      </div>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+
+      <nav>
+        <a href="index.html" data-i18n="nav_home">Accueil</a>
+        <a href="index.html#about" data-i18n="nav_about">À propos</a>
+        <a href="index.html#services" data-i18n="nav_services">Services</a>
+        <a href="index.html#products" data-i18n="nav_products">Produits</a>
+        <a href="index.html#contact" data-i18n="nav_contact">Contact</a>
+        <div class="dropdown">
+          <span><span data-i18n="nav_more">Plus</span> <i class="fas fa-chevron-down"></i></span>
+          <div class="dropdown-menu">
+            <a href="index.html#founder" data-i18n="nav_founder">Fondateur</a>
+            <a href="index.html#global" data-i18n="nav_vision">Notre vision</a>
+            <a href="index.html#stats" data-i18n="nav_stats">Chiffres</a>
+            <a href="index.html#partners" data-i18n="nav_partners">Partenaires</a>
+            <a href="index.html#gallery" data-i18n="nav_gallery">Galerie</a>
+            <a href="index.html#testimonials" data-i18n="nav_testimonials">Témoignages</a>
+            <a href="index.html#team" data-i18n="nav_team">Équipe</a>
+            <a href="index.html#blog" data-i18n="nav_blog">Blog</a>
           </div>
+        </div>
+        <a class="btn btn-primary" href="https://wa.me/2250172513751?text=Bonjour%2C%20je%20souhaite%20obtenir%20un%20devis%20pour%20l'immobilier." target="_blank" data-i18n="nav_quote">Devis</a>
+      </nav>
+    </div>
+
+    <div class="mobile-nav" id="mobileNav">
+      <a href="index.html" data-i18n="nav_home">Accueil</a>
+      <a href="index.html#about" data-i18n="nav_about">À propos</a>
+      <a href="index.html#services" data-i18n="nav_services">Services</a>
+      <a href="index.html#products" data-i18n="nav_products">Produits</a>
+      <a href="index.html#founder" data-i18n="nav_founder">Fondateur</a>
+      <a href="index.html#global" data-i18n="nav_vision">Notre vision</a>
+      <a href="index.html#stats" data-i18n="nav_stats">Chiffres</a>
+      <a href="index.html#partners" data-i18n="nav_partners">Partenaires</a>
+      <a href="index.html#gallery" data-i18n="nav_gallery">Galerie</a>
+      <a href="index.html#testimonials" data-i18n="nav_testimonials">Témoignages</a>
+      <a href="index.html#team" data-i18n="nav_team">Équipe</a>
+      <a href="index.html#blog" data-i18n="nav_blog">Blog</a>
+      <a href="index.html#contact" data-i18n="nav_contact">Contact</a>
+      <div class="mobile-cta">
+        <a class="btn btn-primary" href="https://wa.me/2250172513751?text=Bonjour%2C%20je%20souhaite%20demander%20un%20devis%20pour%20l'immobilier." target="_blank" data-i18n="mobile_quote">📩 Demander un devis</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- FIL D'ACTUALITÉ HAUT (dynamique) -->
+  <div class="news-ticker top-ticker">
+    <div class="container" style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+      <span class="ticker-header"><i class="fas fa-bolt"></i> <span data-i18n="ticker_flash">Flash info</span></span>
+      <div class="news-ticker-container" style="flex: 1;">
+        <div class="ticker-track" id="topTickerTrack"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION PRINCIPALE : IMMOBILIER -->
+  <section class="service-detail">
+    <div class="container">
+      <a href="index.html#services" class="btn btn-outline" style="margin-bottom: 2rem; display: inline-block;">
+        <i class="fas fa-arrow-left"></i> <span data-i18n="back_services">Retour aux services</span>
+      </a>
+      
+      <div class="service-header">
+        <div class="service-icon">🏠</div>
+        <div>
+          <h1 style="color: var(--green); margin: 0;" data-i18n="immo_title">Immobilier</h1>
+          <p style="font-size: 1.2rem; color: var(--text-soft); max-width: 700px;" data-i18n="immo_subtitle">Achat, vente, gestion de biens immobiliers. Accompagnement personnalisé.</p>
+        </div>
+      </div>
+
+      <div class="service-content">
+        <div>
+          <h2 data-i18n="immo_section1_title">Votre partenaire immobilier de confiance</h2>
+          <p data-i18n="immo_para1">GRAND‑D AGRO SERVICE étend son expertise au secteur immobilier. Nous vous accompagnons dans vos projets d'achat, de vente ou de location de biens résidentiels, commerciaux ou agricoles. Nous proposons également des prestations de gestion locative et de conseil en investissement.</p>
+          <p data-i18n="immo_para2">Notre connaissance du terrain et notre réseau de partenaires nous permettent de vous offrir des opportunités adaptées à vos besoins, en toute transparence.</p>
+          <p data-i18n="immo_para3">Que vous soyez particulier, investisseur ou professionnel, nous mettons notre expérience à votre service pour sécuriser vos transactions et valoriser votre patrimoine.</p>
+        </div>
+
+        <div>
+          <div class="info-card">
+            <span class="card-tag" style="display: inline-block; font-size: 1rem; background: var(--gold); color: white; padding: 0.3rem 1rem; border-radius: 40px; margin-bottom: 1rem;" data-i18n="immo_tag">Accompagnement</span>
+            <h3 style="color: var(--green);" data-i18n="immo_info_title">Informations clés</h3>
+            <ul class="feature-list" id="infoList"></ul>
+            <a href="https://wa.me/2250172513751?text=Bonjour%2C%20je%20souhaite%20un%20devis%20pour%20l'immobilier." target="_blank" class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;">
+              <i class="fab fa-whatsapp"></i> <span data-i18n="immo_quote_btn">Demander un devis</span>
+            </a>
+            <p style="font-size: 0.9rem; margin-top: 1rem; text-align: center;" data-i18n="immo_response">Réponse sous 24h</p>
+          </div>
+          <div class="testimonial-card" id="testimonialCard"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="news-ticker bottom-ticker">…</div>
-  <footer>…</footer>
+  <!-- FIL D'ACTUALITÉ BAS -->
+  <div class="news-ticker bottom-ticker">
+    <div class="container" style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+      <span class="ticker-header"><i class="fas fa-megaphone"></i> <span data-i18n="ticker_announce">Annonces</span></span>
+      <div class="news-ticker-container" style="flex: 1;">
+        <div class="ticker-track" id="bottomTickerTrack"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <p>&copy; 2026 GRAND-D AGRO SERVICE | SARL | Capital : 1 000 000 F CFA | RCS Abidjan</p>
+        <p class="footer-links">
+          <a href="#" data-i18n="legal">Mentions légales</a> | <a href="#" data-i18n="privacy">Politique de confidentialité</a>
+        </p>
+      </div>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/profile.php?id=61587893614200" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING BUTTONS -->
   <a class="whatsapp-float" href="https://wa.me/2250172513751" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-  <div class="back-top" id="backTop"><i class="fas fa-arrow-up"></i></div>
-  <script src="script.js"></script>
+  <div class="back-top" id="backTop" aria-label="Retour en haut"><i class="fas fa-arrow-up"></i></div>
+
+  <script>
+    (function() {
+      // ========== DONNÉES DE TRADUCTION ==========
+      const translations = {
+        fr: {
+          nav_home: "Accueil",
+          nav_about: "À propos",
+          nav_services: "Services",
+          nav_products: "Produits",
+          nav_contact: "Contact",
+          nav_more: "Plus <i class='fas fa-chevron-down'></i>",
+          nav_founder: "Fondateur",
+          nav_vision: "Notre vision",
+          nav_stats: "Chiffres",
+          nav_partners: "Partenaires",
+          nav_gallery: "Galerie",
+          nav_testimonials: "Témoignages",
+          nav_team: "Équipe",
+          nav_blog: "Blog",
+          nav_quote: "Devis",
+          mobile_quote: "📩 Demander un devis",
+          back_services: "Retour aux services",
+          immo_title: "Immobilier",
+          immo_subtitle: "Achat, vente, gestion de biens immobiliers. Accompagnement personnalisé.",
+          immo_section1_title: "Votre partenaire immobilier de confiance",
+          immo_para1: "GRAND‑D AGRO SERVICE étend son expertise au secteur immobilier. Nous vous accompagnons dans vos projets d'achat, de vente ou de location de biens résidentiels, commerciaux ou agricoles. Nous proposons également des prestations de gestion locative et de conseil en investissement.",
+          immo_para2: "Notre connaissance du terrain et notre réseau de partenaires nous permettent de vous offrir des opportunités adaptées à vos besoins, en toute transparence.",
+          immo_para3: "Que vous soyez particulier, investisseur ou professionnel, nous mettons notre expérience à votre service pour sécuriser vos transactions et valoriser votre patrimoine.",
+          immo_tag: "Accompagnement",
+          immo_info_title: "Informations clés",
+          immo_quote_btn: "Demander un devis",
+          immo_response: "Réponse sous 24h",
+          legal: "Mentions légales",
+          privacy: "Politique de confidentialité",
+          ticker_flash: "Flash info",
+          ticker_announce: "Annonces",
+        },
+        en: {
+          nav_home: "Home",
+          nav_about: "About",
+          nav_services: "Services",
+          nav_products: "Products",
+          nav_contact: "Contact",
+          nav_more: "More <i class='fas fa-chevron-down'></i>",
+          nav_founder: "Founder",
+          nav_vision: "Our vision",
+          nav_stats: "Figures",
+          nav_partners: "Partners",
+          nav_gallery: "Gallery",
+          nav_testimonials: "Testimonials",
+          nav_team: "Team",
+          nav_blog: "Blog",
+          nav_quote: "Quote",
+          mobile_quote: "📩 Request a quote",
+          back_services: "Back to services",
+          immo_title: "Real estate",
+          immo_subtitle: "Purchase, sale, property management. Personalized support.",
+          immo_section1_title: "Your trusted real estate partner",
+          immo_para1: "GRAND‑D AGRO SERVICE extends its expertise to the real estate sector. We support you in your projects to buy, sell or rent residential, commercial or agricultural properties. We also offer property management and investment advice services.",
+          immo_para2: "Our knowledge of the field and our network of partners allow us to offer you opportunities adapted to your needs, in complete transparency.",
+          immo_para3: "Whether you are an individual, investor or professional, we put our experience at your service to secure your transactions and enhance your assets.",
+          immo_tag: "Support",
+          immo_info_title: "Key information",
+          immo_quote_btn: "Request a quote",
+          immo_response: "Reply within 24h",
+          legal: "Legal notices",
+          privacy: "Privacy policy",
+          ticker_flash: "Flash info",
+          ticker_announce: "Announcements",
+        }
+      };
+
+      // ========== DONNÉES DES TICKERS (Immobilier) ==========
+      const topTickerData = [
+        { icon: "fa-tag", textFr: "Nouveau : programme immobilier à Yopougon", textEn: "New: real estate project in Yopougon" },
+        { icon: "fa-handshake", textFr: "Partenariat avec une agence immobilière", textEn: "Partnership with a real estate agency" },
+        { icon: "fa-seedling", textFr: "Vente de terrains agricoles", textEn: "Sale of agricultural land" },
+        { icon: "fa-truck", textFr: "Accompagnement pour investisseurs", textEn: "Support for investors" },
+        { icon: "fa-apple-alt", textFr: "Appartements meublés en location", textEn: "Furnished apartments for rent" },
+        { icon: "fa-fish", textFr: "Locaux commerciaux disponibles", textEn: "Commercial premises available" }
+      ];
+
+      const bottomTickerData = [
+        { icon: "fa-tag", textFr: "📍 Recrutement conseiller(ère) immobilier", textEn: "📍 Hiring real estate advisor" },
+        { icon: "fa-handshake", textFr: "Recherche partenaires pour promotion immobilière", textEn: "Looking for real estate development partners" },
+        { icon: "fa-seedling", textFr: "Nouveau lotissement à Bingerville", textEn: "New subdivision in Bingerville" },
+        { icon: "fa-truck", textFr: "Offre spéciale frais de notaire offerts", textEn: "Special offer: notary fees covered" },
+        { icon: "fa-apple-alt", textFr: "Vente de villas 4 pièces", textEn: "Sale of 4-room villas" },
+        { icon: "fa-fish", textFr: "Bureaux équipés à louer", textEn: "Furnished offices for rent" }
+      ];
+
+      // ========== DONNÉES DES INFORMATIONS CLÉS ==========
+      const infoListData = {
+        fr: [
+          { icon: "fa-home", text: "Résidentiel, commercial, agricole" },
+          { icon: "fa-handshake", text: "Transactions sécurisées" },
+          { icon: "fa-file-signature", text: "Gestion locative" },
+          { icon: "fa-chart-pie", text: "Conseil en investissement" },
+          { icon: "fa-key", text: "Estimation gratuite" }
+        ],
+        en: [
+          { icon: "fa-home", text: "Residential, commercial, agricultural" },
+          { icon: "fa-handshake", text: "Secure transactions" },
+          { icon: "fa-file-signature", text: "Property management" },
+          { icon: "fa-chart-pie", text: "Investment advice" },
+          { icon: "fa-key", text: "Free valuation" }
+        ]
+      };
+
+      // ========== DONNÉES DU TÉMOIGNAGE ==========
+      const testimonialData = {
+        fr: { quote: "Grâce à GRAND-D AGRO, j'ai trouvé le terrain idéal pour mon projet agricole. Professionnalisme et écoute.", author: "M. Kouamé, investisseur" },
+        en: { quote: "Thanks to GRAND-D AGRO, I found the ideal land for my agricultural project. Professionalism and listening.", author: "Mr. Kouamé, investor" }
+      };
+
+      // ========== FONCTION DE CHANGEMENT DE LANGUE ==========
+      function setLanguage(lang) {
+        document.documentElement.lang = lang;
+        // Mettre à jour les attributs data-i18n
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          if (translations[lang] && translations[lang][key]) {
+            // Pour les éléments avec innerHTML (pour les icônes dans le texte)
+            if (key === 'nav_more') {
+              el.innerHTML = translations[lang][key];
+            } else {
+              el.textContent = translations[lang][key];
+            }
+          }
+        });
+
+        // Mettre à jour les tickers
+        renderTickers(lang);
+
+        // Mettre à jour la liste d'infos clés
+        const infoList = document.getElementById('infoList');
+        if (infoList) {
+          infoList.innerHTML = infoListData[lang].map(item => 
+            `<li><i class="fas ${item.icon}"></i> ${item.text}</li>`
+          ).join('');
+        }
+
+        // Mettre à jour le témoignage
+        const testimonialCard = document.getElementById('testimonialCard');
+        if (testimonialCard) {
+          testimonialCard.innerHTML = `
+            <i class="fas fa-quote-left" style="color: var(--green-light); font-size: 2rem;"></i>
+            <p style="font-style: italic;">"${testimonialData[lang].quote}"</p>
+            <p style="font-weight: bold;">— ${testimonialData[lang].author}</p>
+          `;
+        }
+
+        // Mettre à jour la classe active du switcher
+        document.querySelectorAll('.lang-switcher span').forEach(span => {
+          span.classList.toggle('active', span.dataset.lang === lang);
+        });
+      }
+
+      // ========== RENDU DES TICKERS ==========
+      function renderTickers(lang) {
+        const topTrack = document.getElementById('topTickerTrack');
+        const bottomTrack = document.getElementById('bottomTickerTrack');
+        if (topTrack) {
+          const items = topTickerData.map(item => 
+            `<span class="ticker-item"><i class="fas ${item.icon}"></i> ${lang === 'fr' ? item.textFr : item.textEn}</span>`
+          ).join('');
+          topTrack.innerHTML = items + items; // doublon pour continuité
+        }
+        if (bottomTrack) {
+          const items = bottomTickerData.map(item => 
+            `<span class="ticker-item"><i class="fas ${item.icon}"></i> ${lang === 'fr' ? item.textFr : item.textEn}</span>`
+          ).join('');
+          bottomTrack.innerHTML = items + items;
+        }
+      }
+
+      // ========== GESTIONNAIRES D'ÉVÉNEMENTS ==========
+      document.addEventListener('DOMContentLoaded', () => {
+        // Langue initiale (français)
+        setLanguage('fr');
+
+        // Switcher de langue
+        document.querySelectorAll('.lang-switcher span').forEach(span => {
+          span.addEventListener('click', (e) => {
+            const lang = e.target.dataset.lang;
+            setLanguage(lang);
+          });
+        });
+
+        // Menu mobile
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        menuBtn.addEventListener('click', () => {
+          mobileNav.classList.toggle('show');
+        });
+
+        // Retour en haut
+        document.getElementById('backTop').addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Fermer le menu mobile si on clique sur un lien
+        mobileNav.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => mobileNav.classList.remove('show'));
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
